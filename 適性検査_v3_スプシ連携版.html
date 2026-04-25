@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>開発職適性検査 | 株式会社システムズナカシマ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #ffffff;
+  --bg: #f7f8fa;
+  --bg-2: #eef1f6;
+  --line: #e5e7eb;
+  --line-2: #cbd2dc;
+  --black: #1a1a1a;
+  --text: #222222;
+  --text-2: #555555;
+  --text-3: #8a94a6;
+  --navy: #051B49;
+  --navy-2: #0d2560;
+  --navy-light: #e8eaf2;
+  --red: #E30101;
+  --red-dark: #b80101;
+  --red-light: #fce8e8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========== ヘッダー ========== */
+.header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-n {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.logo-text-main {
+  color: var(--black);
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+.logo-text-sub {
+  color: var(--text-3);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  font-style: italic;
+  font-weight: 500;
+}
+.header-badge {
+  font-size: 10.5px;
+  color: var(--text-2);
+  padding: 6px 14px;
+  border: 1px solid var(--line-2);
+  letter-spacing: 0.1em;
+  background: var(--white);
+  font-weight: 500;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ========== イントロ画面 ========== */
+.intro-hero {
+  background: var(--white);
+  padding: 56px 48px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  margin-bottom: 20px;
+  position: relative;
+}
+.intro-hero::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: var(--navy);
+}
+.intro-kicker {
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.intro-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(26px, 3.6vw, 38px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.4;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+.intro-title .accent-red { color: var(--red); }
+.intro-subtitle {
+  color: var(--text-2);
+  font-size: 13px;
+  margin-bottom: 36px;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+.intro-description {
+  color: var(--text-2);
+  font-size: 14.5px;
+  line-height: 1.95;
+}
+.intro-description p + p { margin-top: 14px; }
+
+/* ========== メタ情報 ========== */
+.intro-meta {
+  background: var(--white);
+  border: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 20px;
+}
+.meta-item {
+  padding: 28px 20px;
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+.meta-item:last-child { border-right: none; }
+.meta-label {
+  font-size: 10px;
+  color: var(--text-3);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.meta-value {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 34px;
+  color: var(--navy);
+  font-weight: 700;
+  line-height: 1;
+}
+.meta-unit {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-left: 4px;
+  font-weight: 400;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ========== 5軸セクション ========== */
+.axes-section {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 40px 48px;
+  margin-bottom: 32px;
+}
+.section-kicker {
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: 0.28em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--navy);
+  letter-spacing: 0.02em;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--red);
+}
+.axis-item {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+}
+.axis-item:last-child { border-bottom: none; }
+.axis-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 26px;
+  color: var(--navy);
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid var(--red);
+  padding: 4px 12px 4px 0;
+  line-height: 1;
+}
+.axis-body-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.axis-body-desc {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+.axis-weight {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  color: var(--navy);
+  font-weight: 700;
+  min-width: 50px;
+  text-align: right;
+}
+.axis-weight small {
+  font-size: 11px;
+  color: var(--text-3);
+  font-weight: 400;
+  display: block;
+  letter-spacing: 0.1em;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ========== 受検者情報入力 ========== */
+.form-section {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 40px 48px;
+  margin-bottom: 32px;
+}
+.input-group {
+  margin-bottom: 24px;
+}
+.input-group:last-child { margin-bottom: 0; }
+.input-group label {
+  display: block;
+  font-size: 11px;
+  color: var(--navy);
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.input-group label .required {
+  color: var(--red);
+  margin-left: 4px;
+}
+.input-group label .optional {
+  color: var(--text-3);
+  margin-left: 4px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+.input-group input,
+.input-group select {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--line-2);
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input-group input:focus,
+.input-group select:focus {
+  border-color: var(--navy);
+}
+
+/* ========== ボタン ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 16px 40px;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.btn::after {
+  content: '→';
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+.btn:hover {
+  background: var(--navy-2);
+}
+.btn:hover::after {
+  transform: translateX(4px);
+}
+.btn:disabled {
+  background: var(--line-2);
+  cursor: not-allowed;
+  color: var(--text-3);
+}
+.btn.red {
+  background: var(--red);
+}
+.btn.red:hover { background: var(--red-dark); }
+.btn.ghost {
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid var(--line-2);
+}
+.btn.ghost:hover {
+  border-color: var(--navy);
+  background: var(--white);
+}
+.btn.ghost::after { content: '←'; }
+.btn.ghost:hover::after { transform: translateX(-4px); }
+
+.action-row {
+  margin-top: 32px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* ========== 質問画面 ========== */
+.progress-wrap {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 65px;
+  z-index: 90;
+}
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-2);
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.progress-meta .current {
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 13px;
+}
+.progress-meta .category {
+  color: var(--red);
+  font-weight: 700;
+}
+.progress-bar {
+  height: 3px;
+  background: var(--bg-2);
+  position: relative;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--red) 100%);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.question-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 48px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.q-category-tag {
+  display: inline-block;
+  font-size: 10.5px;
+  color: var(--red);
+  background: var(--red-light);
+  padding: 5px 12px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+.q-text {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(19px, 2.2vw, 24px);
+  line-height: 1.7;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 40px;
+  letter-spacing: 0.02em;
+}
+
+.q-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.q-option {
+  padding: 18px 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 15px;
+  color: var(--text);
+}
+.q-option:hover {
+  border-color: var(--navy);
+  background: var(--bg);
+}
+.q-option.selected {
+  border-color: var(--navy);
+  background: var(--navy-light);
+  border-width: 2px;
+  padding: 17px 21px;
+}
+.q-option-marker {
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--line-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.q-option.selected .q-option-marker {
+  border-color: var(--navy);
+  background: var(--navy);
+}
+.q-option.selected .q-option-marker::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--white);
+  border-radius: 50%;
+}
+.q-option-text {
+  flex: 1;
+}
+
+.q-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  gap: 12px;
+}
+
+/* ========== 結果画面 ========== */
+.result-header {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  padding: 40px 48px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.result-header::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: var(--navy);
+}
+.result-label {
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.result-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.result-date {
+  font-size: 12px;
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+}
+
+/* 送信状態インジケーター */
+.send-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+.send-status.sending {
+  background: var(--bg-2);
+  color: var(--text-2);
+}
+.send-status.success {
+  background: #e6f7ed;
+  color: #0a6b2f;
+}
+.send-status.error {
+  background: var(--red-light);
+  color: var(--red-dark);
+}
+.send-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.send-status.sending .send-status-dot {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.result-section {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 40px 48px;
+  margin-bottom: 20px;
+}
+
+/* 総合判定 */
+.judgment-box {
+  text-align: center;
+  padding: 20px 0;
+}
+.judgment-grade {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 120px;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+}
+.judgment-grade::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  right: -12px;
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+}
+.judgment-label {
+  font-size: 12px;
+  color: var(--red);
+  letter-spacing: 0.4em;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.judgment-comment {
+  color: var(--text-2);
+  font-size: 14px;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+/* レーダーチャート */
+.chart-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0;
+}
+#radarChart { max-width: 100%; height: auto; }
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--text-2);
+  letter-spacing: 0.05em;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.legend-mark {
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+}
+.legend-mark.you { background: var(--navy); }
+.legend-mark.hp { background: var(--red); }
+
+/* スコア一覧 */
+.scores-grid {
+  display: grid;
+  gap: 0;
+}
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr 140px 70px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  gap: 20px;
+}
+.score-row:last-child { border-bottom: none; }
+.score-name { font-size: 15px; font-weight: 500; }
+.score-bar {
+  height: 4px;
+  background: var(--bg-2);
+  position: relative;
+}
+.score-bar-fill {
+  height: 100%;
+  background: var(--navy);
+  transition: width 1s ease;
+  position: relative;
+}
+.score-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 10px;
+  height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+}
+.score-value {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 26px;
+  text-align: right;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ハイパフォーマー類似度 */
+.similarity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.similarity-item {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.2s;
+}
+.similarity-item.top {
+  border-color: var(--navy);
+  border-width: 2px;
+  padding: 23px 27px;
+  background: linear-gradient(135deg, var(--navy-light) 0%, var(--white) 60%);
+}
+.sim-rank-badge {
+  width: 40px;
+  height: 40px;
+  background: var(--bg-2);
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+.similarity-item.top .sim-rank-badge {
+  background: var(--red);
+  color: var(--white);
+}
+.sim-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 3px;
+}
+.sim-role {
+  font-size: 12px;
+  color: var(--text-2);
+  letter-spacing: 0.05em;
+}
+.sim-percent {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.sim-percent .unit {
+  font-size: 14px;
+  color: var(--text-3);
+  margin-left: 2px;
+}
+
+/* 軸別解説 */
+.axis-detail {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+.axis-detail:last-child { border-bottom: none; }
+.axis-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+.axis-detail-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.axis-detail-score {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--red);
+}
+.axis-detail-comment {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.85;
+}
+
+.result-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+  justify-content: flex-end;
+}
+
+/* ========== 必須要件チェック ========== */
+.requirement-section {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--navy);
+  padding: 36px 48px;
+  margin-bottom: 20px;
+}
+.requirement-section.has-warning {
+  border-top-color: var(--red);
+}
+.req-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.req-status-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.req-status-icon.ok { background: var(--navy); }
+.req-status-icon.ng { background: var(--red); }
+.req-status-text {
+  flex: 1;
+}
+.req-status-main {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+.req-status-main.ng { color: var(--red); }
+.req-status-sub {
+  font-size: 13px;
+  color: var(--text-2);
+}
+.req-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+.req-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-left: 3px solid var(--navy);
+  font-size: 13px;
+}
+.req-item.fail {
+  background: var(--red-light);
+  border-left-color: var(--red);
+}
+.req-item-check {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.req-item.fail .req-item-check { color: var(--red); }
+.req-item-label {
+  flex: 1;
+  color: var(--text);
+  font-weight: 500;
+}
+.req-item-value {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  color: var(--navy);
+}
+.req-item.fail .req-item-value { color: var(--red); }
+.req-item-threshold {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-left: 4px;
+}
+.req-note {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+  line-height: 1.7;
+}
+
+/* ========== 人物タイプ診断 ========== */
+.persona-section {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 40px 48px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.persona-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--red) 0%, var(--navy) 100%);
+  opacity: 0.06;
+  border-radius: 50%;
+  transform: translate(40%, -40%);
+}
+.persona-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.persona-type-code {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 0.2em;
+  padding: 4px 10px;
+  border: 1px solid var(--red);
+}
+.persona-type-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.persona-tagline {
+  font-size: 14px;
+  color: var(--text-2);
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.8;
+}
+.persona-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 24px;
+}
+.persona-block-title {
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.persona-block-body {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.9;
+}
+.persona-block-body ul {
+  list-style: none;
+  padding: 0;
+}
+.persona-block-body li {
+  padding: 6px 0 6px 18px;
+  position: relative;
+}
+.persona-block-body li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--red);
+  font-size: 12px;
+}
+
+/* 画面切替 */
+.screen { display: none; }
+.screen.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* モバイル */
+@media (max-width: 640px) {
+  .header-badge { display: none; }
+  .container { padding: 24px 16px 60px; }
+  .intro-hero, .axes-section, .form-section, .question-card, .result-header, .result-section, .requirement-section, .persona-section { padding: 28px 24px; }
+  .persona-body { grid-template-columns: 1fr; gap: 20px; }
+  .req-list { grid-template-columns: 1fr; }
+  .intro-meta { grid-template-columns: 1fr; }
+  .meta-item { border-right: none; border-bottom: 1px solid var(--line); }
+  .meta-item:last-child { border-bottom: none; }
+  .action-row, .result-actions { flex-direction: column-reverse; }
+  .btn { width: 100%; }
+  .score-row { grid-template-columns: 1fr 80px; gap: 12px; }
+  .score-bar { display: none; }
+  .similarity-item { grid-template-columns: 1fr auto; }
+  .sim-rank-badge { grid-row: 1 / span 2; }
+  .judgment-grade { font-size: 80px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <svg class="logo-n" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="10,10 10,90 40,90 40,40" fill="#E30101"/>
+        <polygon points="10,10 40,10 90,90 60,90" fill="#E30101"/>
+        <polygon points="60,10 90,10 90,90 90,90 60,60" fill="#051B49"/>
+        <polygon points="40,10 90,10 90,40 40,10" fill="#051B49"/>
+      </svg>
+      <div class="logo-text-group">
+        <div class="logo-text-main">NAKASHIMA</div>
+        <div class="logo-text-sub">Systems Nakashima</div>
+      </div>
+    </div>
+    <div class="header-badge">APTITUDE TEST 2026</div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ========== 画面1: イントロ ========== -->
+<div id="screen-intro" class="screen active">
+  <div class="intro-hero">
+    <div class="intro-kicker">DEVELOPMENT TRACK</div>
+    <h1 class="intro-title">開発職 <span class="accent-red">適性検査</span></h1>
+    <div class="intro-subtitle">SYSTEMS NAKASHIMA / APTITUDE ASSESSMENT</div>
+    <div class="intro-description">
+      <p>本検査は、システムズナカシマの開発職において活躍する人材特性を定量化し、受検者の適性を多角的に可視化するものです。</p>
+      <p>全40問、所要時間は約20〜25分です。正解・不正解はありません。直感的に回答してください。</p>
+    </div>
+  </div>
+
+  <div class="intro-meta">
+    <div class="meta-item">
+      <div class="meta-label">Questions</div>
+      <div class="meta-value">40<span class="meta-unit">問</span></div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Duration</div>
+      <div class="meta-value">20-25<span class="meta-unit">分</span></div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Axes</div>
+      <div class="meta-value">5<span class="meta-unit">軸</span></div>
+    </div>
+  </div>
+
+  <div class="axes-section">
+    <div class="section-kicker">FIVE AXES</div>
+    <h2 class="section-title">測定する5つの軸</h2>
+    <div class="axis-item">
+      <div class="axis-num">01</div>
+      <div>
+        <div class="axis-body-name">論理的思考力</div>
+        <div class="axis-body-desc">情報を構造化し、筋道立てて考える力</div>
+      </div>
+      <div class="axis-weight">25<small>%</small></div>
+    </div>
+    <div class="axis-item">
+      <div class="axis-num">02</div>
+      <div>
+        <div class="axis-body-name">文脈理解力</div>
+        <div class="axis-body-desc">背景や前後関係を読み取り、意図を汲む力</div>
+      </div>
+      <div class="axis-weight">20<small>%</small></div>
+    </div>
+    <div class="axis-item">
+      <div class="axis-num">03</div>
+      <div>
+        <div class="axis-body-name">主体性・発信力</div>
+        <div class="axis-body-desc">自分の意見を持ち、受け身にならず踏み込む力</div>
+      </div>
+      <div class="axis-weight">20<small>%</small></div>
+    </div>
+    <div class="axis-item">
+      <div class="axis-num">04</div>
+      <div>
+        <div class="axis-body-name">ストレス耐性・切替力</div>
+        <div class="axis-body-desc">トラブルから立ち直る速さと感情の整え方</div>
+      </div>
+      <div class="axis-weight">20<small>%</small></div>
+    </div>
+    <div class="axis-item">
+      <div class="axis-num">05</div>
+      <div>
+        <div class="axis-body-name">学習意欲・知的好奇心</div>
+        <div class="axis-body-desc">新しい技術や領域へのキャッチアップ姿勢</div>
+      </div>
+      <div class="axis-weight">15<small>%</small></div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="section-kicker">CANDIDATE INFORMATION</div>
+    <h2 class="section-title">受検者情報</h2>
+    <div class="input-group">
+      <label>お名前<span class="required">*</span></label>
+      <input type="text" id="candidateName" placeholder="例: 山田 太郎">
+    </div>
+    <div class="input-group">
+      <label>大学名 / 所属<span class="required">*</span></label>
+      <input type="text" id="candidateSchool" placeholder="例: 岡山大学 工学部">
+    </div>
+    <div class="input-group">
+      <label>メールアドレス<span class="required">*</span></label>
+      <input type="email" id="candidateEmail" placeholder="例: yamada@example.com">
+    </div>
+    <div class="action-row">
+      <button class="btn red" onclick="startTest()">検査を開始する</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 画面2: 質問 ========== -->
+<div id="screen-question" class="screen">
+  <div class="progress-wrap">
+    <div class="progress-meta">
+      <span><span class="current" id="qNum">1</span> / 40</span>
+      <span class="category" id="qCategoryLabel">論理的思考力</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="q-category-tag" id="qTagText">LOGICAL THINKING</div>
+    <div class="q-text" id="qText">質問文</div>
+    <div class="q-options" id="qOptions"></div>
+    <div class="q-nav">
+      <button class="btn ghost" id="btnPrev" onclick="prevQuestion()" style="visibility: hidden;">前へ</button>
+      <button class="btn" id="btnNext" onclick="nextQuestion()" disabled>次へ</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 画面3: 結果 ========== -->
+<div id="screen-result" class="screen">
+  <div class="result-header">
+    <div class="result-label">ASSESSMENT RESULT</div>
+    <div class="result-name" id="resultName">—</div>
+    <div class="result-date" id="resultDate">—</div>
+    <div id="sendStatus" class="send-status sending">
+      <span class="send-status-dot"></span>
+      <span id="sendStatusText">記録しています...</span>
+    </div>
+  </div>
+
+  <div class="requirement-section" id="requirementSection">
+    <div class="section-kicker">COMPANY REQUIREMENTS CHECK</div>
+    <h2 class="section-title">採用要件チェック</h2>
+    <div class="req-status">
+      <div class="req-status-icon" id="reqStatusIcon">✓</div>
+      <div class="req-status-text">
+        <div class="req-status-main" id="reqStatusMain">全要件を満たしています</div>
+        <div class="req-status-sub" id="reqStatusSub">—</div>
+      </div>
+    </div>
+    <div class="req-list" id="reqList"></div>
+    <div class="req-note">
+      ※ 各軸の最低ラインは仮の値です。実運用時は採用担当者と協議の上、自社基準に合わせて調整してください。
+    </div>
+  </div>
+
+  <div class="result-section">
+    <div class="section-kicker">OVERALL JUDGMENT</div>
+    <h2 class="section-title">総合判定</h2>
+    <div class="judgment-box">
+      <div class="judgment-grade" id="judgmentGrade">A</div>
+      <div class="judgment-label" id="judgmentLabel">HIGH POTENTIAL</div>
+      <div class="judgment-comment" id="judgmentComment">—</div>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <div class="section-kicker">CANDIDATE PERSONA</div>
+    <h2 class="section-title">受検者の人物タイプ</h2>
+    <div class="persona-header">
+      <div class="persona-type-code" id="personaCode">TYPE-AA</div>
+      <div class="persona-type-name" id="personaName">—</div>
+    </div>
+    <div class="persona-tagline" id="personaTagline">—</div>
+    <div class="persona-body">
+      <div>
+        <div class="persona-block-title">CHARACTERISTICS</div>
+        <div class="persona-block-body">
+          <ul id="personaTraits"></ul>
+        </div>
+      </div>
+      <div>
+        <div class="persona-block-title">SUITED ROLES</div>
+        <div class="persona-block-body">
+          <ul id="personaRoles"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-section">
+    <div class="section-kicker">PROFILE VISUALIZATION</div>
+    <h2 class="section-title">5軸プロファイル</h2>
+    <div class="chart-wrap">
+      <canvas id="radarChart" width="480" height="480"></canvas>
+    </div>
+    <div class="chart-legend">
+      <div class="legend-item"><span class="legend-mark you"></span>受検者</div>
+      <div class="legend-item"><span class="legend-mark hp"></span>ハイパフォーマー平均</div>
+    </div>
+  </div>
+
+  <div class="result-section">
+    <div class="section-kicker">AXIS SCORES</div>
+    <h2 class="section-title">軸別スコア</h2>
+    <div class="scores-grid" id="scoresGrid"></div>
+  </div>
+
+  <div class="result-section">
+    <div class="section-kicker">SIMILARITY TO HIGH PERFORMERS</div>
+    <h2 class="section-title">社内ハイパフォーマーとの類似度</h2>
+    <div class="similarity-list" id="similarityList"></div>
+  </div>
+
+  <div class="result-section">
+    <div class="section-kicker">DETAILED ANALYSIS</div>
+    <h2 class="section-title">軸別の詳細分析</h2>
+    <div id="axisDetails"></div>
+  </div>
+
+  <div class="result-actions">
+    <button class="btn ghost" onclick="location.reload()">最初からやり直す</button>
+    <button class="btn red" onclick="window.print()">結果を印刷 / PDF保存</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+/* ==================================================
+   GAS Webhook URL (スプシ送信先)
+================================================== */
+const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzv58Q8FaVAc9HNpFwsYOjbLrwPryAEzwEcqTzoMMM57Xnka_c5CWgfScjnf9GjRuuk-g/exec';
+
+/* ==================================================
+   質問データ (40問: 各軸8問ずつ)
+================================================== */
+const QUESTIONS = [
+  { axis: 'logic', text: '物事を考えるとき、まず全体の構造や要素を整理してから進める方だ', type: 'scale' },
+  { axis: 'logic', text: '人の話を聞いていて、論点がずれていると気づくことがよくある', type: 'scale' },
+  { axis: 'logic', text: '複雑な問題に直面したとき、小さな要素に分解して考える', type: 'scale' },
+  { axis: 'logic', text: '曖昧な指示を受けたら、前提や条件を確認してから動き出したい', type: 'scale' },
+  { axis: 'logic', text: '感覚や直感で決めるより、理由や根拠を明確にしたい', type: 'scale' },
+  { axis: 'logic', text: '「なぜそうなるのか」を突き詰めて考えるのが好きだ', type: 'scale' },
+  { axis: 'logic', text: 'データや数字を見て、そこからパターンや傾向を読み取るのが得意だ', type: 'scale' },
+  { axis: 'logic', text: '話が飛躍していると感じると気持ち悪くて、確認したくなる', type: 'scale' },
+
+  { axis: 'context', text: '相手が本当に言いたいことは何か、言葉の裏を読むようにしている', type: 'scale' },
+  { axis: 'context', text: '会話や資料の「前後の流れ」から、省略された情報を推測するのが得意だ', type: 'scale' },
+  { axis: 'context', text: '仕事を頼まれたとき、依頼者の意図や背景まで考えて進める', type: 'scale' },
+  { axis: 'context', text: '場の空気や相手の表情から、言われていないことを察することがある', type: 'scale' },
+  { axis: 'context', text: 'マニュアルに書いていない状況でも、趣旨から判断して動ける方だ', type: 'scale' },
+  { axis: 'context', text: '何かを判断するとき、「その人の立場ならどう考えるか」を想像する', type: 'scale' },
+  { axis: 'context', text: '情報が不完全でも、全体像を推測して動き出せる', type: 'scale' },
+  { axis: 'context', text: '「言葉通り」ではなく「意図通り」に応えることを意識している', type: 'scale' },
+
+  { axis: 'proactive', text: '自分の意見は、周囲と違っていても言える方だ', type: 'scale' },
+  { axis: 'proactive', text: '誰かに言われる前に、自分から動き出すことが多い', type: 'scale' },
+  { axis: 'proactive', text: '会議やグループワークでは、自分から発言する方だ', type: 'scale' },
+  { axis: 'proactive', text: '疑問を感じたら、相手が目上でも質問する', type: 'scale' },
+  { axis: 'proactive', text: 'わからないことがあっても、調べたり聞いたりして自分で解決しようとする', type: 'scale' },
+  { axis: 'proactive', text: '指示を待つより、自分で考えて提案する方が好きだ', type: 'scale' },
+  { axis: 'proactive', text: '周囲が動かないとき、自分が率先して動くことが多い', type: 'scale' },
+  { axis: 'proactive', text: '誰かが言ってくれるのを待つより、自分から言う方が性に合う', type: 'scale' },
+
+  { axis: 'resilience', text: '失敗やミスをしても、次の日には気持ちを切り替えられる', type: 'scale' },
+  { axis: 'resilience', text: '予定通りに進まないときも、イライラせずに対応できる方だ', type: 'scale' },
+  { axis: 'resilience', text: 'プレッシャーがかかる場面でも、普段通りのパフォーマンスを出せる', type: 'scale' },
+  { axis: 'resilience', text: '批判や指摘を受けても、引きずらずに受け止められる', type: 'scale' },
+  { axis: 'resilience', text: '困難な状況でも「なんとかなる」と考えて前に進める方だ', type: 'scale' },
+  { axis: 'resilience', text: '感情的になりそうなときも、一度立ち止まって冷静になれる', type: 'scale' },
+  { axis: 'resilience', text: '一度嫌なことがあると、しばらく引きずってしまう', type: 'scale', reverse: true },
+  { axis: 'resilience', text: '手戻りや想定外の事態が起きても、素早く次の手を考えられる', type: 'scale' },
+
+  { axis: 'curiosity', text: '知らない分野の話を聞くと、「もっと知りたい」と思う', type: 'scale' },
+  { axis: 'curiosity', text: '新しい技術やトレンドの情報を、自分から積極的に調べる方だ', type: 'scale' },
+  { axis: 'curiosity', text: '本や記事を読んでいて「なるほど」と思うと、関連する内容まで深掘りする', type: 'scale' },
+  { axis: 'curiosity', text: '同じやり方より、新しい方法を試してみたくなる', type: 'scale' },
+  { axis: 'curiosity', text: '自分の専門外の領域にも、興味を持って触れてみる', type: 'scale' },
+  { axis: 'curiosity', text: '「学ぶこと」自体を楽しいと感じる方だ', type: 'scale' },
+  { axis: 'curiosity', text: 'わからないものに出会うと、ワクワクする', type: 'scale' },
+  { axis: 'curiosity', text: '知識が増えるほど、さらに知らないことが増える感覚が好きだ', type: 'scale' }
+];
+
+const AXIS_META = {
+  logic:      { name: '論理的思考力',         label: 'LOGICAL THINKING',       weight: 0.25 },
+  context:    { name: '文脈理解力',           label: 'CONTEXTUAL AWARENESS',   weight: 0.20 },
+  proactive:  { name: '主体性・発信力',       label: 'PROACTIVENESS',          weight: 0.20 },
+  resilience: { name: 'ストレス耐性・切替力', label: 'RESILIENCE',             weight: 0.20 },
+  curiosity:  { name: '学習意欲・知的好奇心', label: 'CURIOSITY & LEARNING',   weight: 0.15 }
+};
+
+const AXIS_ORDER = ['logic', 'context', 'proactive', 'resilience', 'curiosity'];
+
+const OPTIONS = [
+  { label: '当てはまらない',       score: 1 },
+  { label: 'あまり当てはまらない', score: 2 },
+  { label: 'やや当てはまる',       score: 3 },
+  { label: '当てはまる',           score: 4 }
+];
+
+const HIGH_PERFORMERS = [
+  { name: '開発Aさん', role: 'シニアエンジニア / 入社7年目', scores: { logic: 88, context: 82, proactive: 75, resilience: 85, curiosity: 90 } },
+  { name: '開発Bさん', role: 'リードエンジニア / 入社5年目',  scores: { logic: 82, context: 88, proactive: 85, resilience: 78, curiosity: 82 } },
+  { name: '開発Cさん', role: 'テックリード / 入社10年目',     scores: { logic: 92, context: 78, proactive: 70, resilience: 88, curiosity: 85 } }
+];
+
+const REQUIREMENTS = {
+  logic:      { min: 55, required: true },
+  context:    { min: 55, required: true },
+  proactive:  { min: 50, required: true },
+  resilience: { min: 50, required: false },
+  curiosity:  { min: 45, required: false }
+};
+
+const PERSONA_TYPES = {
+  'logic-context': {
+    code: 'TYPE-LC',
+    name: '構造設計型アナリスト',
+    tagline: '論理的な思考と文脈把握を武器に、複雑な要件を整理し最適解を導き出すタイプ。設計やコンサルティング領域で力を発揮します。',
+    traits: ['物事を俯瞰し、構造化して捉える', '曖昧な要件から本質を引き出す', 'ロジックと共感のバランスが取れる', '言語化・整理のスキルが高い'],
+    roles: ['要件定義・上流工程', 'システムアーキテクト', 'テクニカルコンサルタント', '顧客折衝を伴う設計ポジション']
+  },
+  'logic-proactive': {
+    code: 'TYPE-LP',
+    name: '戦略実行型エンジニア',
+    tagline: '論理的な判断力と主体的な行動力を併せ持つ、自走できるエンジニアタイプ。プロジェクトリード候補として期待できます。',
+    traits: ['自分の頭で考え、根拠を持って動く', '正解のない状況で意思決定できる', '議論をリードし、論点を整理する', '完遂までの推進力がある'],
+    roles: ['プロジェクトリード', 'テックリード候補', '新規事業・新技術導入', '若手エンジニアのメンター']
+  },
+  'logic-resilience': {
+    code: 'TYPE-LR',
+    name: '堅実突破型エンジニア',
+    tagline: '論理性と粘り強さを兼ね備えた、安定感のあるタイプ。難易度の高い開発課題を着実に解ききる力があります。',
+    traits: ['難問に冷静に立ち向かえる', '感情に流されず判断できる', '長期の粘り強い思考が得意', '精度の高いアウトプットを出せる'],
+    roles: ['コアシステム開発', 'バックエンド・インフラ', '品質保証・セキュリティ', '長期プロジェクトの中核']
+  },
+  'logic-curiosity': {
+    code: 'TYPE-LQ',
+    name: '技術探求型アーキテクト',
+    tagline: '論理的思考と知的好奇心が強く、本質を掘り下げて最適解を探すタイプ。新技術のキャッチアップと実装に意欲的です。',
+    traits: ['新技術へのアンテナが高い', '物事の原理原則を理解したい', '未知の領域にも臆さず取り組む', '知識を体系化する力がある'],
+    roles: ['技術選定・R&D', 'アーキテクチャ設計', 'AI/先端技術領域', '社内ナレッジ構築']
+  },
+  'context-proactive': {
+    code: 'TYPE-CP',
+    name: '顧客折衝型エンジニア',
+    tagline: '文脈理解と発信力を活かし、顧客との橋渡しができるタイプ。SIerの要件定義・提案フェーズで力を発揮します。',
+    traits: ['相手の立場に立って考えられる', '言語化して伝える力がある', '場の空気を読みつつ踏み込める', '信頼関係の構築が上手い'],
+    roles: ['顧客折衝・要件ヒアリング', '営業同行エンジニア', 'プロジェクトマネージャー', 'カスタマーサクセス寄りの開発']
+  },
+  'context-resilience': {
+    code: 'TYPE-CR',
+    name: '調整統合型ディレクター',
+    tagline: '文脈理解と切替力を兼ね備えた、調整能力の高いタイプ。混乱した状況でも全体を俯瞰して動かせます。',
+    traits: ['複数の関係者の意図を汲める', 'トラブル対応で落ち着いている', '感情の波に左右されない', '長期戦に強い'],
+    roles: ['プロジェクトマネジメント', '炎上案件のリカバリー', '複数チームの統合ポジション', 'クライアント窓口']
+  },
+  'context-curiosity': {
+    code: 'TYPE-CQ',
+    name: '越境学習型ブリッジャー',
+    tagline: '文脈理解と学習意欲を武器に、異なる領域を繋ぐタイプ。業界知識とIT技術の橋渡しが得意です。',
+    traits: ['ドメイン知識への興味が強い', '顧客業界の理解に前向き', '新しい領域にすぐ馴染める', '越境的な発想ができる'],
+    roles: ['業務系SE(建設・医療・教育など)', 'ドメインエキスパート', '新規ソリューション開発', '業界特化型プロダクト']
+  },
+  'proactive-curiosity': {
+    code: 'TYPE-PQ',
+    name: 'チャレンジ推進型イノベーター',
+    tagline: '主体性と好奇心が強く、新しいことに挑戦しながら周囲を巻き込むタイプ。新規事業・新技術領域で輝きます。',
+    traits: ['現状を変えることに抵抗がない', '新しい技術・手法を試したがる', '周囲を動かす発信力がある', '失敗を恐れず挑戦する'],
+    roles: ['新規プロダクト開発', '社内DX・改革推進', 'R&D・先端技術領域', '若手リーダー候補']
+  },
+  'default': {
+    code: 'TYPE-GN',
+    name: 'バランス型ジェネラリスト',
+    tagline: '特定の軸が突出するのではなく、全体的にバランスの取れたタイプ。幅広い業務に柔軟に対応できます。',
+    traits: ['特定領域に偏らず対応できる', '多様な業務を任せやすい', '環境変化に適応しやすい', '育成次第で伸びしろが大きい'],
+    roles: ['幅広い開発ポジション', '配属前研修で方向性を見極め', 'サポート・運用含む汎用的な役割', '将来的な専門性の発見']
+  }
+};
+
+let currentQ = 0;
+let answers = new Array(QUESTIONS.length).fill(null);
+let candidate = { name: '', school: '', email: '' };
+
+function startTest() {
+  const name = document.getElementById('candidateName').value.trim();
+  const school = document.getElementById('candidateSchool').value.trim();
+  const email = document.getElementById('candidateEmail').value.trim();
+  if (!name || !school || !email) {
+    alert('お名前・大学名・メールアドレスをすべて入力してください');
+    return;
+  }
+  // 簡易メール形式チェック
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert('メールアドレスの形式が正しくありません');
+    return;
+  }
+  candidate.name = name;
+  candidate.school = school;
+  candidate.email = email;
+
+  document.getElementById('screen-intro').classList.remove('active');
+  document.getElementById('screen-question').classList.add('active');
+  window.scrollTo(0, 0);
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[currentQ];
+  const meta = AXIS_META[q.axis];
+  document.getElementById('qNum').textContent = currentQ + 1;
+  document.getElementById('qCategoryLabel').textContent = meta.name;
+  document.getElementById('qTagText').textContent = meta.label;
+  document.getElementById('qText').textContent = q.text;
+  const progress = ((currentQ) / QUESTIONS.length) * 100;
+  document.getElementById('progressFill').style.width = progress + '%';
+  const optionsDiv = document.getElementById('qOptions');
+  optionsDiv.innerHTML = '';
+  OPTIONS.forEach((opt, idx) => {
+    const div = document.createElement('div');
+    div.className = 'q-option';
+    if (answers[currentQ] === idx) div.classList.add('selected');
+    div.innerHTML = `<div class="q-option-marker"></div><div class="q-option-text">${opt.label}</div>`;
+    div.onclick = () => selectOption(idx);
+    optionsDiv.appendChild(div);
+  });
+  document.getElementById('btnPrev').style.visibility = currentQ === 0 ? 'hidden' : 'visible';
+  const btnNext = document.getElementById('btnNext');
+  btnNext.disabled = answers[currentQ] === null;
+  btnNext.textContent = currentQ === QUESTIONS.length - 1 ? '結果を見る' : '次へ';
+}
+
+function selectOption(idx) {
+  answers[currentQ] = idx;
+  renderQuestion();
+}
+
+function nextQuestion() {
+  if (answers[currentQ] === null) return;
+  if (currentQ === QUESTIONS.length - 1) {
+    showResult();
+  } else {
+    currentQ++;
+    renderQuestion();
+    window.scrollTo(0, 0);
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) {
+    currentQ--;
+    renderQuestion();
+    window.scrollTo(0, 0);
+  }
+}
+
+function calculateScores() {
+  const axisScores = {};
+  const axisCount = {};
+  AXIS_ORDER.forEach(axis => {
+    axisScores[axis] = 0;
+    axisCount[axis] = 0;
+  });
+  QUESTIONS.forEach((q, i) => {
+    const optIdx = answers[i];
+    if (optIdx === null) return;
+    let score = OPTIONS[optIdx].score;
+    if (q.reverse) score = 5 - score;
+    axisScores[q.axis] += score;
+    axisCount[q.axis] += 1;
+  });
+  const normalized = {};
+  AXIS_ORDER.forEach(axis => {
+    const max = axisCount[axis] * 4;
+    normalized[axis] = Math.round((axisScores[axis] / max) * 100);
+  });
+  return normalized;
+}
+
+function calculateTotal(scores) {
+  let total = 0;
+  AXIS_ORDER.forEach(axis => { total += scores[axis] * AXIS_META[axis].weight; });
+  return Math.round(total);
+}
+
+function cosineSimilarity(a, b) {
+  const va = AXIS_ORDER.map(k => a[k]);
+  const vb = AXIS_ORDER.map(k => b[k]);
+  const dot = va.reduce((s, v, i) => s + v * vb[i], 0);
+  const na = Math.sqrt(va.reduce((s, v) => s + v * v, 0));
+  const nb = Math.sqrt(vb.reduce((s, v) => s + v * v, 0));
+  return Math.round((dot / (na * nb)) * 100);
+}
+
+function getHPAverage() {
+  const avg = {};
+  AXIS_ORDER.forEach(axis => {
+    const sum = HIGH_PERFORMERS.reduce((s, hp) => s + hp.scores[axis], 0);
+    avg[axis] = Math.round(sum / HIGH_PERFORMERS.length);
+  });
+  return avg;
+}
+
+/* ==================================================
+   スプシへの自動送信
+================================================== */
+async function sendToSpreadsheet(data) {
+  const statusEl = document.getElementById('sendStatus');
+  const statusText = document.getElementById('sendStatusText');
+  
+  try {
+    await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    });
+    statusEl.className = 'send-status success';
+    statusText.textContent = '記録完了';
+  } catch (error) {
+    statusEl.className = 'send-status error';
+    statusText.textContent = '記録に失敗しました';
+    console.error('Send error:', error);
+  }
+}
+
+function showResult() {
+  const scores = calculateScores();
+  const total = calculateTotal(scores);
+  const hpAvg = getHPAverage();
+  const overallSimilarity = cosineSimilarity(scores, hpAvg);
+
+  document.getElementById('screen-question').classList.remove('active');
+  document.getElementById('screen-result').classList.add('active');
+  window.scrollTo(0, 0);
+
+  document.getElementById('resultName').textContent = `${candidate.name} 様`;
+  const d = new Date();
+  document.getElementById('resultDate').textContent = `${candidate.school}  /  受検日: ${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+
+  renderRequirementCheck(scores);
+  renderJudgment(total, overallSimilarity);
+  const personaInfo = renderPersona(scores);
+  renderRadarChart(scores, hpAvg);
+  renderScoresGrid(scores);
+  renderSimilarity(scores);
+  renderAxisDetails(scores, hpAvg);
+
+  // スプシへ自動送信
+  const reqStatus = document.getElementById('reqStatusMain').textContent;
+  sendToSpreadsheet({
+    name: candidate.name,
+    email: candidate.email,
+    university: candidate.school,
+    totalScore: total,
+    logic: scores.logic,
+    context: scores.context,
+    proactive: scores.proactive,
+    resilience: scores.resilience,
+    curiosity: scores.curiosity,
+    personaType: personaInfo.name,
+    requirementResult: reqStatus
+  });
+}
+
+function renderRequirementCheck(scores) {
+  const reqList = document.getElementById('reqList');
+  reqList.innerHTML = '';
+  let failedRequired = [];
+  let failedRecommended = [];
+  AXIS_ORDER.forEach(axis => {
+    const score = scores[axis];
+    const req = REQUIREMENTS[axis];
+    const meta = AXIS_META[axis];
+    const passed = score >= req.min;
+    const failed = !passed;
+    if (failed) {
+      if (req.required) failedRequired.push(meta.name);
+      else failedRecommended.push(meta.name);
+    }
+    const itemClass = failed ? 'req-item fail' : 'req-item';
+    const checkMark = passed ? '✓' : '✕';
+    const requiredTag = req.required ? '<span style="font-size:10px;color:#E30101;margin-left:4px;font-weight:700;">必須</span>' : '<span style="font-size:10px;color:#8a94a6;margin-left:4px;">推奨</span>';
+    reqList.innerHTML += `<div class="${itemClass}"><div class="req-item-check">${checkMark}</div><div class="req-item-label">${meta.name}${requiredTag}</div><div class="req-item-value">${score}<span class="req-item-threshold">/ ${req.min}</span></div></div>`;
+  });
+  const section = document.getElementById('requirementSection');
+  const icon = document.getElementById('reqStatusIcon');
+  const mainText = document.getElementById('reqStatusMain');
+  const subText = document.getElementById('reqStatusSub');
+  if (failedRequired.length > 0) {
+    section.classList.add('has-warning');
+    icon.className = 'req-status-icon ng';
+    icon.textContent = '!';
+    mainText.className = 'req-status-main ng';
+    mainText.textContent = '必須要件を下回る項目があります';
+    subText.textContent = `未達の必須項目: ${failedRequired.join(' / ')}`;
+  } else if (failedRecommended.length > 0) {
+    section.classList.remove('has-warning');
+    icon.className = 'req-status-icon ok';
+    icon.textContent = '△';
+    mainText.className = 'req-status-main';
+    mainText.textContent = '必須要件はクリア(推奨項目に未達あり)';
+    subText.textContent = `推奨項目で未達: ${failedRecommended.join(' / ')} / 入社後の成長余地として検討可能`;
+  } else {
+    section.classList.remove('has-warning');
+    icon.className = 'req-status-icon ok';
+    icon.textContent = '✓';
+    mainText.className = 'req-status-main';
+    mainText.textContent = '全要件を満たしています';
+    subText.textContent = '採用基準の最低ラインをすべてクリアした候補者です';
+  }
+}
+
+function renderPersona(scores) {
+  const sorted = AXIS_ORDER.map(axis => ({ axis, score: scores[axis] })).sort((a, b) => b.score - a.score);
+  const top1 = sorted[0].axis;
+  const top2 = sorted[1].axis;
+  const top1Score = sorted[0].score;
+  const top2Score = sorted[1].score;
+  const avg = AXIS_ORDER.reduce((s, a) => s + scores[a], 0) / AXIS_ORDER.length;
+  const variance = AXIS_ORDER.reduce((s, a) => s + Math.pow(scores[a] - avg, 2), 0) / AXIS_ORDER.length;
+  const isBalanced = variance < 50 && (top1Score - top2Score) < 8;
+  const axisRank = { logic: 0, context: 1, proactive: 2, resilience: 3, curiosity: 4 };
+  const key = [top1, top2].sort((a, b) => axisRank[a] - axisRank[b]).join('-');
+  let persona;
+  if (isBalanced) persona = PERSONA_TYPES['default'];
+  else persona = PERSONA_TYPES[key] || PERSONA_TYPES['default'];
+  document.getElementById('personaCode').textContent = persona.code;
+  document.getElementById('personaName').textContent = persona.name;
+  document.getElementById('personaTagline').textContent = persona.tagline;
+  const traitsEl = document.getElementById('personaTraits');
+  traitsEl.innerHTML = '';
+  persona.traits.forEach(t => { traitsEl.innerHTML += `<li>${t}</li>`; });
+  const rolesEl = document.getElementById('personaRoles');
+  rolesEl.innerHTML = '';
+  persona.roles.forEach(r => { rolesEl.innerHTML += `<li>${r}</li>`; });
+  return persona;
+}
+
+function renderJudgment(total, similarity) {
+  let grade, label, comment;
+  if (total >= 80 && similarity >= 90) {
+    grade = 'S'; label = 'EXCEPTIONAL';
+    comment = '全軸において高い水準にあり、社内ハイパフォーマーとの類似度も極めて高い、最優先で採用を検討すべき候補です。';
+  } else if (total >= 70 && similarity >= 85) {
+    grade = 'A'; label = 'HIGH POTENTIAL';
+    comment = '開発職として活躍が期待できる優れたプロファイルです。社内ハイパフォーマーとの類似度も高く、早期戦力化が見込めます。';
+  } else if (total >= 60 && similarity >= 75) {
+    grade = 'B'; label = 'PROMISING';
+    comment = '全体的なバランスは良好で、入社後の育成次第でハイパフォーマー層へと成長する可能性があります。面接での深掘りを推奨します。';
+  } else {
+    grade = 'C'; label = 'NEEDS REVIEW';
+    comment = '一部の軸に課題が見られます。配属予定ポジションとの適合性や、他の要素(ポテンシャル、志望度)を総合的に判断してください。';
+  }
+  document.getElementById('judgmentGrade').textContent = grade;
+  document.getElementById('judgmentLabel').textContent = label;
+  document.getElementById('judgmentComment').textContent = comment;
+}
+
+function renderScoresGrid(scores) {
+  const grid = document.getElementById('scoresGrid');
+  grid.innerHTML = '';
+  AXIS_ORDER.forEach(axis => {
+    const meta = AXIS_META[axis];
+    const score = scores[axis];
+    grid.innerHTML += `<div class="score-row"><div class="score-name">${meta.name}</div><div class="score-bar"><div class="score-bar-fill" style="width: ${score}%"></div></div><div class="score-value">${score}</div></div>`;
+  });
+}
+
+function renderSimilarity(scores) {
+  const list = HIGH_PERFORMERS.map(hp => ({ ...hp, similarity: cosineSimilarity(scores, hp.scores) })).sort((a, b) => b.similarity - a.similarity);
+  const container = document.getElementById('similarityList');
+  container.innerHTML = '';
+  list.forEach((hp, i) => {
+    const div = document.createElement('div');
+    div.className = 'similarity-item' + (i === 0 ? ' top' : '');
+    div.innerHTML = `<div class="sim-rank-badge">${i + 1}</div><div><div class="sim-name">${hp.name}</div><div class="sim-role">${hp.role}</div></div><div class="sim-percent">${hp.similarity}<span class="unit">%</span></div>`;
+    container.appendChild(div);
+  });
+}
+
+function renderAxisDetails(scores, hpAvg) {
+  const container = document.getElementById('axisDetails');
+  container.innerHTML = '';
+  AXIS_ORDER.forEach(axis => {
+    const meta = AXIS_META[axis];
+    const score = scores[axis];
+    const hp = hpAvg[axis];
+    const diff = score - hp;
+    let comment;
+    if (diff >= 10) comment = `ハイパフォーマー平均(${hp}点)を大きく上回る水準です。この領域は明確な強みと言えます。面接ではこの資質を活かした具体的エピソードを引き出すと効果的です。`;
+    else if (diff >= -5) comment = `ハイパフォーマー平均(${hp}点)とほぼ同等の水準です。即戦力としての適合性が認められます。`;
+    else if (diff >= -15) comment = `ハイパフォーマー平均(${hp}点)をやや下回ります。入社後のOJTや研修で補強可能な範囲ですが、面接で実際の行動傾向を確認することを推奨します。`;
+    else comment = `ハイパフォーマー平均(${hp}点)から乖離があります。配属先の業務要件と照らし合わせ、重点的に育成計画を検討する必要があります。`;
+    container.innerHTML += `<div class="axis-detail"><div class="axis-detail-header"><div class="axis-detail-name">${meta.name}</div><div class="axis-detail-score">${score} <span style="color:#8a94a6; font-size:13px; font-family:'Noto Sans JP';">/ 100</span></div></div><div class="axis-detail-comment">${comment}</div></div>`;
+  });
+}
+
+function renderRadarChart(scores, hpAvg) {
+  const canvas = document.getElementById('radarChart');
+  const ctx = canvas.getContext('2d');
+  const size = canvas.width;
+  const cx = size / 2;
+  const cy = size / 2;
+  const radius = size * 0.35;
+  ctx.clearRect(0, 0, size, size);
+  const labels = AXIS_ORDER.map(a => AXIS_META[a].name);
+  const userVals = AXIS_ORDER.map(a => scores[a]);
+  const hpVals = AXIS_ORDER.map(a => hpAvg[a]);
+  const n = labels.length;
+  ctx.strokeStyle = '#e5e7eb';
+  ctx.lineWidth = 1;
+  for (let lv = 1; lv <= 5; lv++) {
+    ctx.beginPath();
+    for (let i = 0; i < n; i++) {
+      const angle = -Math.PI / 2 + (Math.PI * 2 * i) / n;
+      const r = (radius * lv) / 5;
+      const x = cx + Math.cos(angle) * r;
+      const y = cy + Math.sin(angle) * r;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.stroke();
+  }
+  ctx.strokeStyle = '#cbd2dc';
+  for (let i = 0; i < n; i++) {
+    const angle = -Math.PI / 2 + (Math.PI * 2 * i) / n;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
+    ctx.stroke();
+  }
+  ctx.beginPath();
+  for (let i = 0; i < n; i++) {
+    const angle = -Math.PI / 2 + (Math.PI * 2 * i) / n;
+    const r = (radius * hpVals[i]) / 100;
+    const x = cx + Math.cos(angle) * r;
+    const y = cy + Math.sin(angle) * r;
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(227, 1, 1, 0.08)';
+  ctx.fill();
+  ctx.strokeStyle = '#E30101';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  ctx.beginPath();
+  for (let i = 0; i < n; i++) {
+    const angle = -Math.PI / 2 + (Math.PI * 2 * i) / n;
+    const r = (radius * userVals[i]) / 100;
+    const x = cx + Math.cos(angle) * r;
+    const y = cy + Math.sin(angle) * r;
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(5, 27, 73, 0.15)';
+  ctx.fill();
+  ctx.strokeStyle = '#051B49';
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+  for (let i = 0; i < n; i++) {
+    const angle = -Math.PI / 2 + (Math.PI * 2 * i) / n;
+    const r = (radius * userVals[i]) / 100;
+    const x = cx + Math.cos(angle) * r;
+    const y = cy + Math.sin(angle) * r;
+    ctx.fillStyle = '#051B49';
+    ctx.beginPath();
+    ctx.arc(x, y, 4, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.fillStyle = '#1a1a1a';
+  ctx.font = '600 13px "Noto Sans JP", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  for (let i = 0; i < n; i++) {
+    const angle = -Math.PI / 2 + (Math.PI * 2 * i) / n;
+    const lx = cx + Math.cos(angle) * (radius + 32);
+    const ly = cy + Math.sin(angle) * (radius + 32);
+    ctx.fillText(labels[i], lx, ly);
+  }
+  ctx.fillStyle = '#8a94a6';
+  ctx.font = '400 10px "Noto Sans JP", sans-serif';
+  ctx.textAlign = 'left';
+  for (let lv = 1; lv <= 5; lv++) {
+    const v = lv * 20;
+    ctx.fillText(v.toString(), cx + 3, cy - (radius * lv) / 5);
+  }
+}
+</script>
+
+</body>
+</html>
