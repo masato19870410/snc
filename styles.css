@@ -536,3 +536,130 @@ p {
     white-space: nowrap;
   }
 }
+
+
+/* v3: communication example card width tuning */
+@media (max-width: 640px) {
+  .showcase-section .container {
+    width: min(1180px, calc(100vw - 32px));
+  }
+
+  .showcase-grid {
+    max-width: 340px;
+    margin-inline: auto;
+    gap: 18px;
+  }
+
+  .showcase-card {
+    border-radius: 20px;
+  }
+
+  .showcase-card img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+}
+
+
+/* v4: brand/header, showcase, contact refinements */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-mascot img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.05;
+}
+.brand-copy strong {
+  font-size: 1.06rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+.brand-copy small {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: #7180a5;
+  font-weight: 700;
+}
+
+.showcase-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  padding: 16px;
+  background: transparent;
+}
+
+.footer-actions {
+  display: grid;
+  gap: 16px;
+  justify-items: end;
+}
+.footer-contact-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.footer-form-btn {
+  min-width: 260px;
+  padding-inline: 28px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .brand-mascot img {
+    width: 44px;
+    height: 44px;
+  }
+  .brand-copy strong {
+    font-size: 0.96rem;
+  }
+  .brand-copy small {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .showcase-section .container {
+    width: min(1180px, calc(100vw - 24px));
+  }
+  .showcase-grid {
+    max-width: none;
+    margin-inline: 0;
+    width: 100%;
+    gap: 16px;
+  }
+  .showcase-card {
+    width: 100%;
+  }
+  .showcase-card img {
+    padding: 14px;
+    object-fit: contain;
+  }
+
+  .footer-actions {
+    justify-items: stretch;
+  }
+  .footer-contact-meta {
+    align-items: flex-start;
+  }
+  .phone-link {
+    font-size: 1.95rem;
+    line-height: 1.15;
+  }
+  .footer-form-btn {
+    width: 100%;
+    min-width: 0;
+    min-height: 56px;
+    white-space: normal;
+  }
+}
