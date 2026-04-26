@@ -115,9 +115,9 @@ p {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 20px;
-  min-height: 88px;
+  min-height: 78px;
 }
-.brand img { width: 180px; }
+.brand img { width: 128px; height: auto; object-fit: contain; }
 .global-nav {
   display: flex;
   align-items: center;
@@ -253,8 +253,8 @@ p {
   box-shadow: var(--shadow);
 }
 .family-card img {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   object-fit: contain;
   margin: 0 auto 16px;
 }
@@ -323,7 +323,8 @@ p {
   overflow: hidden;
   box-shadow: var(--shadow);
 }
-.showcase-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.showcase-card { width: 100%; min-width: 0; }
+.showcase-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; padding: 0; background: #fff; }
 .showcase-card figcaption {
   padding: 16px 18px 18px;
   font-weight: 700;
@@ -388,9 +389,12 @@ p {
 .footer-actions {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+.footer-actions .btn {
+  white-space: nowrap;
 }
 .phone-link {
   font-size: 1.6rem;
@@ -440,7 +444,7 @@ p {
 
 @media (max-width: 640px) {
   .section { padding: 18px 0; }
-  .brand img { width: 150px; }
+  .brand img { width: 132px; height: auto; object-fit: contain; }
   .hero { padding-top: 20px; }
   .hero-grid,
   .family-grid,
@@ -466,4 +470,69 @@ p {
   .info-banner,
   .footer-card { padding: 20px; }
   .phone-link { font-size: 1.3rem; }
+}
+
+/* mobile image fixes */
+@media (max-width: 640px) {
+  .site-header { position: sticky; }
+  .header-inner { min-height: 72px; }
+  .brand img { width: 128px; max-height: 64px; }
+  .menu-toggle { width: 54px; height: 54px; font-size: 22px; }
+  .hero-visual { padding: 12px; border-radius: 26px; }
+  .hero-visual img { width: 100%; max-height: 280px; object-fit: contain; }
+  .family-card img { width: 170px; height: 140px; object-fit: contain; }
+  .service-card img { width: 100%; max-height: 180px; object-fit: contain; }
+}
+
+
+/* v2 mobile tuning */
+@media (max-width: 640px) {
+  .header-inner { min-height: 66px; }
+  .brand img { width: 100px; max-height: 54px; }
+  .menu-toggle { width: 44px; height: 44px; font-size: 20px; }
+
+  .showcase-section .container { width: min(1180px, calc(100vw - 24px)); }
+  .showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .showcase-card {
+    width: 100%;
+    border-radius: 20px;
+  }
+  .showcase-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .showcase-card figcaption {
+    padding: 14px 16px 16px;
+    font-size: 1rem;
+  }
+
+  .footer-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .footer-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .phone-link {
+    font-size: 1.95rem;
+    line-height: 1.15;
+  }
+  .time {
+    font-size: 0.95rem;
+  }
+  .footer-actions .btn {
+    width: 100%;
+    max-width: none;
+    min-height: 56px;
+    white-space: nowrap;
+  }
 }
