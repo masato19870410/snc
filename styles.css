@@ -663,3 +663,60 @@ p {
     white-space: normal;
   }
 }
+
+
+/* v5: communication section alignment fix */
+.showcase-section .container {
+  width: var(--container);
+}
+
+.showcase-grid {
+  width: 100%;
+}
+
+.showcase-card {
+  width: 100%;
+  min-width: 0;
+}
+
+.showcase-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  padding: 0;
+  background: transparent;
+}
+
+@media (max-width: 640px) {
+  .showcase-section .container {
+    width: min(1180px, calc(100vw - 32px));
+  }
+
+  .showcase-grid {
+    width: 100%;
+    max-width: none !important;
+    margin: 0 !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  .showcase-card {
+    width: 100%;
+    margin: 0;
+    padding: 14px 14px 0;
+  }
+
+  .showcase-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto !important;
+    object-fit: contain;
+    padding: 0 !important;
+  }
+
+  .showcase-card figcaption {
+    padding: 10px 2px 16px;
+  }
+}
