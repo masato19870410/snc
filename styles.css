@@ -760,3 +760,64 @@ p {
       linear-gradient(#fff 0 0) bottom center / 19px 2.4px no-repeat;
   }
 }
+
+
+/* v7 final: header logo / menu balance + OGP-ready layout */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.brand-mascot img {
+  width: 210px;
+  height: auto;
+  max-height: 58px;
+  object-fit: contain;
+}
+
+.menu-toggle {
+  position: relative;
+  padding: 0;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle::before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 14px;
+  background:
+    linear-gradient(#fff 0 0) top center / 18px 2.2px no-repeat,
+    linear-gradient(#fff 0 0) center center / 18px 2.2px no-repeat,
+    linear-gradient(#fff 0 0) bottom center / 18px 2.2px no-repeat;
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    min-height: 64px;
+  }
+
+  .brand-mascot img {
+    width: 180px;
+    max-height: 52px;
+  }
+
+  .menu-toggle {
+    width: 46px;
+    height: 46px;
+  }
+
+  .menu-toggle::before {
+    width: 18px;
+    height: 14px;
+    background:
+      linear-gradient(#fff 0 0) top center / 18px 2.2px no-repeat,
+      linear-gradient(#fff 0 0) center center / 18px 2.2px no-repeat,
+      linear-gradient(#fff 0 0) bottom center / 18px 2.2px no-repeat;
+  }
+}
