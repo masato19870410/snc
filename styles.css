@@ -1500,3 +1500,75 @@ p {
     font-size: 2.45rem;
   }
 }
+
+
+/* v14: mobile hero image center lock */
+/* 忘れない前提: スマホ版ヒーロー画像は「枠なし・馴染ませる・中央寄せ」を維持 */
+@media (max-width: 640px) {
+  .hero-integrated .hero-visual {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    overflow: visible !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .hero-integrated .hero-visual img {
+    display: block !important;
+    position: relative !important;
+    left: 50% !important;
+    width: 108% !important;
+    max-width: none !important;
+    max-height: 315px !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    filter: drop-shadow(0 16px 24px rgba(13, 31, 77, .06));
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-integrated .hero-visual img {
+    width: 104% !important;
+    max-height: 292px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+
+/* v15: mobile hero arrow tap-highlight removal */
+/* 「私たちの想い」右矢印のグレー背景対策。
+   原因候補: iOS/Safariのタップハイライト、または疑似要素の背景継承。
+   対策: タップハイライトを消し、矢印疑似要素の背景・影・角丸を明示的に無効化。 */
+a,
+button,
+.btn,
+.menu-toggle {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-integrated .hero-actions .btn,
+.hero-integrated .hero-actions .btn:active,
+.hero-integrated .hero-actions .btn:focus {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-integrated .hero-actions .btn::after,
+.hero-integrated .hero-actions .btn:hover::after,
+.hero-integrated .hero-actions .btn:active::after,
+.hero-integrated .hero-actions .btn:focus::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
