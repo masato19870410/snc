@@ -1024,3 +1024,220 @@ p {
     max-height: 255px;
   }
 }
+
+
+/* v9 final: real mobile hero like the comp */
+/* 文字だけのファーストビュー化を防ぐため、スマホでは「文字→ビジュアル→CTA」の順で詰める */
+.hero-integrated {
+  padding-top: 34px;
+  padding-bottom: 20px;
+}
+
+.hero-integrated .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+  grid-template-areas:
+    "copy visual"
+    "actions visual";
+  align-items: center;
+  gap: 22px 32px;
+}
+
+.hero-integrated .hero-copy {
+  grid-area: copy;
+  padding: 16px 0 0;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-integrated .hero-visual {
+  grid-area: visual;
+  align-self: center;
+}
+
+.hero-integrated .hero-actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 0;
+}
+
+/* header logo uses logo.png */
+.brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand-mascot img {
+  width: 210px;
+  height: auto;
+  max-height: 58px;
+  object-fit: contain;
+}
+
+/* menu icon stable centering */
+.menu-toggle {
+  position: relative;
+  padding: 0;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle::before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 14px;
+  background:
+    linear-gradient(#fff 0 0) top center / 18px 2.2px no-repeat,
+    linear-gradient(#fff 0 0) center center / 18px 2.2px no-repeat,
+    linear-gradient(#fff 0 0) bottom center / 18px 2.2px no-repeat;
+}
+
+@media (max-width: 880px) {
+  .hero-integrated .hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "visual"
+      "actions";
+    gap: 14px;
+  }
+}
+
+/* smartphone first view */
+@media (max-width: 640px) {
+  .header-inner {
+    min-height: 64px;
+  }
+
+  .brand-mascot img {
+    width: 178px;
+    max-height: 52px;
+  }
+
+  .menu-toggle {
+    width: 46px;
+    height: 46px;
+  }
+
+  .menu-toggle::before {
+    width: 18px;
+    height: 14px;
+    background:
+      linear-gradient(#fff 0 0) top center / 18px 2.2px no-repeat,
+      linear-gradient(#fff 0 0) center center / 18px 2.2px no-repeat,
+      linear-gradient(#fff 0 0) bottom center / 18px 2.2px no-repeat;
+  }
+
+  .hero-integrated {
+    padding-top: 24px;
+    padding-bottom: 14px;
+    overflow: hidden;
+  }
+
+  .hero-integrated .hero-grid {
+    gap: 14px;
+  }
+
+  .hero-integrated .hero-copy {
+    padding: 0;
+  }
+
+  .hero-integrated .eyebrow {
+    margin-bottom: 14px;
+    font-size: 11px;
+    line-height: 1.35;
+    letter-spacing: .12em;
+  }
+
+  .hero-integrated h1 {
+    font-size: clamp(2.25rem, 9.7vw, 2.75rem);
+    line-height: 1.16;
+    letter-spacing: -0.055em;
+    max-width: 11em;
+  }
+
+  .hero-integrated .lead {
+    margin-top: 18px;
+    font-size: .98rem;
+    line-height: 1.72;
+  }
+
+  /* カンプ寄せ：ヒーロー画像はカード枠ではなく、背景に馴染む主役ビジュアルにする */
+  .hero-integrated .hero-visual {
+    width: 100%;
+    padding: 0;
+    margin-top: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .hero-integrated .hero-visual::before {
+    display: none;
+  }
+
+  .hero-integrated .hero-visual img {
+    width: 112%;
+    max-width: none;
+    margin-left: -6%;
+    max-height: 300px;
+    object-fit: contain;
+  }
+
+  .hero-integrated .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .hero-integrated .hero-actions .btn {
+    width: 100%;
+    min-height: 56px;
+    font-size: 1.05rem;
+    position: relative;
+    padding-right: 46px;
+  }
+
+  .hero-integrated .hero-actions .btn::after {
+    content: "›";
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-54%);
+    font-size: 1.55em;
+    line-height: 1;
+    font-weight: 800;
+  }
+
+  .hero-integrated + .section {
+    padding-top: 18px;
+  }
+}
+
+/* small iPhone */
+@media (max-width: 390px) {
+  .brand-mascot img {
+    width: 168px;
+  }
+
+  .hero-integrated h1 {
+    font-size: clamp(2.05rem, 9.25vw, 2.45rem);
+  }
+
+  .hero-integrated .lead {
+    font-size: .94rem;
+  }
+
+  .hero-integrated .hero-visual img {
+    max-height: 270px;
+  }
+}
