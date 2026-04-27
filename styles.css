@@ -1885,3 +1885,215 @@ p {
     max-height: 285px !important;
   }
 }
+
+
+/* v13: Japanese line-break + hero visual position fix */
+/* 見落とし修正:
+   - ヒーロー本文の「を」だけ行末に残るような不自然な改行を防ぐ
+   - ブランドコンセプト見出しで「テクノロジー」「マスコットファミリー」が割れる問題を防ぐ
+   - スマホのヒーロー画像が下にズレて、別セクションっぽく見える問題を防ぐ
+*/
+
+/* Japanese line control */
+.hero-integrated .lead {
+  word-break: keep-all;
+  overflow-wrap: normal;
+  line-break: strict;
+}
+
+.hero-integrated .lead .lead-line {
+  display: block;
+}
+
+.concept-title {
+  word-break: keep-all;
+  overflow-wrap: normal;
+  line-break: strict;
+}
+
+.concept-title span {
+  display: inline;
+}
+
+/* desktop: keep current visual balance, but avoid awkward h1 breaks */
+@media (min-width: 700px) {
+  .hero-integrated h1 .hero-line {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+
+  .concept-title span {
+    display: block;
+  }
+}
+
+/* smartphone: compress hero vertically and visually integrate the image */
+@media (max-width: 699px) {
+  .hero-integrated {
+    padding-top: 22px !important;
+    padding-bottom: 18px !important;
+  }
+
+  .hero-integrated .hero-grid {
+    gap: 10px !important;
+  }
+
+  .hero-integrated .eyebrow {
+    margin-bottom: 16px !important;
+    font-size: 11.5px !important;
+    letter-spacing: .14em !important;
+  }
+
+  .hero-integrated h1 {
+    font-size: clamp(2.18rem, 8.55vw, 2.48rem) !important;
+    line-height: 1.16 !important;
+    letter-spacing: -0.052em !important;
+  }
+
+  .hero-integrated h1 .hero-line {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-integrated .lead {
+    margin-top: 18px !important;
+    font-size: .94rem !important;
+    line-height: 1.72 !important;
+    letter-spacing: .01em !important;
+  }
+
+  .hero-integrated .lead .lead-line {
+    display: block !important;
+  }
+
+  .hero-integrated .hero-visual {
+    margin-top: -2px !important;
+    transform: translateY(-2px);
+  }
+
+  .hero-integrated .hero-visual img {
+    max-height: 272px !important;
+    object-position: center bottom !important;
+  }
+
+  .hero-integrated .hero-actions {
+    margin-top: 0 !important;
+    gap: 12px !important;
+  }
+
+  .hero-integrated .hero-actions .btn {
+    min-height: 54px !important;
+  }
+
+  /* concept title: avoid broken words by reducing size and using sensible chunks */
+  .concept-title {
+    font-size: clamp(1.85rem, 7.2vw, 2.18rem) !important;
+    line-height: 1.42 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  .concept-title span {
+    display: block !important;
+  }
+}
+
+/* narrow iPhone: keep the hero headline in two clean lines */
+@media (max-width: 390px) {
+  .hero-integrated h1 {
+    font-size: clamp(2.04rem, 8.2vw, 2.24rem) !important;
+    line-height: 1.18 !important;
+  }
+
+  .hero-integrated .lead {
+    font-size: .9rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .hero-integrated .hero-visual {
+    margin-top: -6px !important;
+  }
+
+  .hero-integrated .hero-visual img {
+    max-height: 250px !important;
+  }
+
+  .concept-title {
+    font-size: clamp(1.62rem, 6.65vw, 1.92rem) !important;
+    line-height: 1.46 !important;
+  }
+}
+
+
+/* v14: hero no-br repair */
+/* HTML内の hero h1 / lead から <br> を完全撤去。CSS側で自然な折り返しに戻す。 */
+
+.hero-integrated h1 .hero-line,
+.hero-integrated .lead .lead-line {
+  display: inline !important;
+  white-space: normal !important;
+}
+
+.hero-integrated h1 {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+}
+
+.hero-integrated .lead {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+}
+
+/* PC: 2行程度に自然に収まる幅とサイズ */
+@media (min-width: 700px) {
+  .hero-integrated h1 {
+    max-width: 660px !important;
+    font-size: clamp(3.05rem, 3.6vw, 3.5rem) !important;
+    line-height: 1.14 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  .hero-integrated .lead {
+    max-width: 650px !important;
+    font-size: 1rem !important;
+    line-height: 1.85 !important;
+  }
+}
+
+/* SP: 不自然なbr固定をなくし、見た目上2行前後に自然折り返し */
+@media (max-width: 699px) {
+  .hero-integrated h1 {
+    font-size: clamp(2.28rem, 9vw, 2.62rem) !important;
+    line-height: 1.16 !important;
+    letter-spacing: -0.052em !important;
+  }
+
+  .hero-integrated .lead {
+    font-size: .96rem !important;
+    line-height: 1.78 !important;
+    margin-top: 18px !important;
+  }
+
+  .hero-integrated .hero-visual {
+    margin-top: -2px !important;
+  }
+
+  .hero-integrated .hero-visual img {
+    max-height: 282px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-integrated h1 {
+    font-size: clamp(2.08rem, 8.65vw, 2.32rem) !important;
+  }
+
+  .hero-integrated .lead {
+    font-size: .92rem !important;
+  }
+
+  .hero-integrated .hero-visual img {
+    max-height: 258px !important;
+  }
+}
