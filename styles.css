@@ -720,3 +720,43 @@ p {
     padding: 10px 2px 16px;
   }
 }
+
+
+/* v6: hamburger icon visual-centering fix */
+/* 原因: 「☰」文字はフォント依存で上下左右にズレるため、CSSで3本線を描画 */
+.menu-toggle {
+  position: relative;
+  padding: 0;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle::before {
+  content: "";
+  display: block;
+  width: 19px;
+  height: 15px;
+  background:
+    linear-gradient(#fff 0 0) top center / 19px 2.4px no-repeat,
+    linear-gradient(#fff 0 0) center center / 19px 2.4px no-repeat,
+    linear-gradient(#fff 0 0) bottom center / 19px 2.4px no-repeat;
+}
+
+@media (max-width: 640px) {
+  .menu-toggle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .menu-toggle::before {
+    width: 19px;
+    height: 15px;
+    background:
+      linear-gradient(#fff 0 0) top center / 19px 2.4px no-repeat,
+      linear-gradient(#fff 0 0) center center / 19px 2.4px no-repeat,
+      linear-gradient(#fff 0 0) bottom center / 19px 2.4px no-repeat;
+  }
+}
