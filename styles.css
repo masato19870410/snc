@@ -1542,3 +1542,74 @@ p {
     font-weight: 700;
   }
 }
+
+
+/* v14: requested hard fixes */
+/* logo: keep simple logo.png, do not depend on header_mascot_logo.png */
+.site-header .brand-mascot img {
+  display: block;
+  width: 210px;
+  max-height: 58px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* remove forced title line splitting */
+.hero-integrated h1 .hero-line {
+  display: inline !important;
+  white-space: normal !important;
+}
+
+/* hero image: no frame/card/border */
+.hero-integrated .hero-visual {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
+.hero-integrated .hero-visual::before {
+  display: none !important;
+}
+
+.hero-integrated .hero-visual img {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* smartphone: keep image centered and frameless */
+@media (max-width: 640px) {
+  .site-header .brand-mascot img {
+    width: 180px;
+    max-height: 52px;
+  }
+
+  .hero-integrated h1 {
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
+  .hero-integrated .hero-visual {
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin-inline: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+  }
+
+  .hero-integrated .hero-visual img {
+    display: block;
+    margin-inline: auto !important;
+    width: 100%;
+    max-height: 285px;
+    object-fit: contain;
+    object-position: center;
+  }
+}
