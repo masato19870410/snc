@@ -821,3 +821,206 @@ p {
       linear-gradient(#fff 0 0) bottom center / 18px 2.2px no-repeat;
   }
 }
+
+
+/* v8: mobile-first hero integration */
+/* 目的: ファーストビューを「文字だけ」にせず、マスコット画像をヒーロー内に組み込む */
+.hero-integrated {
+  padding-top: 42px;
+  padding-bottom: 22px;
+}
+
+.hero-integrated .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+  grid-template-areas:
+    "copy visual"
+    "actions visual";
+  align-items: center;
+  gap: 22px 32px;
+}
+
+.hero-integrated .hero-copy {
+  grid-area: copy;
+  padding: 18px 0 0;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-integrated .hero-visual {
+  grid-area: visual;
+  align-self: center;
+  padding: 24px;
+  border-radius: 38px;
+  background:
+    radial-gradient(circle at 52% 45%, rgba(255,255,255,.98) 0%, rgba(255,255,255,.94) 42%, rgba(255,233,182,.42) 100%);
+  border: 1px solid rgba(234, 220, 200, .86);
+  box-shadow: 0 18px 44px rgba(13, 31, 77, .07);
+}
+
+.hero-integrated .hero-visual img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.hero-integrated .hero-actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 0;
+}
+
+/* ボタンに右向きの導線を足して、カンプの「動けるUI」感に寄せる */
+.hero-integrated .hero-actions .btn {
+  position: relative;
+  padding-right: 46px;
+}
+
+.hero-integrated .hero-actions .btn::after {
+  content: "›";
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-54%);
+  font-size: 1.55em;
+  line-height: 1;
+  font-weight: 800;
+}
+
+/* 既存の雲・ハート装飾をヒーロー全体の奥行きとして使う */
+.hero-integrated .deco-heart {
+  top: 34%;
+  left: 4%;
+}
+
+.hero-integrated .deco-cloud {
+  top: 22%;
+  right: 7%;
+}
+
+.hero-integrated .deco-dot {
+  right: 11%;
+  bottom: 13%;
+}
+
+/* tablet */
+@media (max-width: 880px) {
+  .hero-integrated {
+    padding-top: 34px;
+  }
+
+  .hero-integrated .hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "visual"
+      "actions";
+    gap: 18px;
+  }
+
+  .hero-integrated .hero-copy {
+    padding-top: 0;
+  }
+
+  .hero-integrated .hero-visual {
+    width: min(100%, 720px);
+    margin-inline: auto;
+  }
+
+  .hero-integrated .hero-actions {
+    width: min(100%, 720px);
+    margin-inline: auto;
+  }
+}
+
+/* smartphone */
+@media (max-width: 640px) {
+  .hero-integrated {
+    padding-top: 26px;
+    padding-bottom: 14px;
+    overflow: hidden;
+  }
+
+  .hero-integrated .hero-grid {
+    gap: 16px;
+  }
+
+  .hero-integrated .hero-copy {
+    padding: 0;
+  }
+
+  .hero-integrated .eyebrow {
+    margin-bottom: 18px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .hero-integrated h1 {
+    font-size: clamp(3.05rem, 13.6vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.055em;
+  }
+
+  .hero-integrated .lead {
+    margin-top: 22px;
+    font-size: 1.04rem;
+    line-height: 1.9;
+  }
+
+  .hero-integrated .hero-visual {
+    width: 100%;
+    padding: 16px 12px 12px;
+    border-radius: 28px;
+    margin-top: 2px;
+    background:
+      radial-gradient(circle at 52% 42%, rgba(255,255,255,1) 0%, rgba(255,255,255,.95) 38%, rgba(255,233,182,.42) 100%);
+  }
+
+  .hero-integrated .hero-visual::before {
+    width: 160px;
+    height: 160px;
+    inset: auto auto 10px 10px;
+  }
+
+  .hero-integrated .hero-visual img {
+    width: 100%;
+    max-height: 285px;
+    object-fit: contain;
+  }
+
+  .hero-integrated .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 2px;
+    width: 100%;
+  }
+
+  .hero-integrated .hero-actions .btn {
+    width: 100%;
+    min-height: 58px;
+    font-size: 1.05rem;
+  }
+
+  /* 次セクションは少しだけ見せる。画像がセクション区切りに見えないようにする */
+  .hero-integrated + .section {
+    padding-top: 18px;
+  }
+}
+
+/* small iPhone safe tuning */
+@media (max-width: 390px) {
+  .hero-integrated h1 {
+    font-size: clamp(2.75rem, 12.8vw, 3.35rem);
+  }
+
+  .hero-integrated .lead {
+    font-size: .99rem;
+  }
+
+  .hero-integrated .hero-visual img {
+    max-height: 255px;
+  }
+}
