@@ -882,25 +882,26 @@ h3 {
   }
 
   h1 {
-    font-size: clamp(3.05rem, 13vw, 4.25rem);
-    line-height: 1.12;
+    font-size: clamp(2.65rem, 11.2vw, 3.6rem);
+    line-height: 1.15;
     letter-spacing: -0.055em;
   }
 
   h2 {
-    font-size: clamp(2.05rem, 8.6vw, 3.15rem);
-    line-height: 1.34;
+    font-size: clamp(1.85rem, 7.2vw, 2.5rem);
+    line-height: 1.36;
   }
 
   .lead {
-    font-size: 1.05rem;
-    line-height: 1.9;
+    font-size: 1rem;
+    line-height: 1.85;
   }
 
   .family-grid,
   .showcase-grid,
   .services-grid,
-  .culture-points {
+  .culture-points,
+  .concept-points {
     grid-template-columns: 1fr;
   }
 
@@ -935,13 +936,79 @@ h3 {
   }
 }
 
+
+@media (max-width: 640px) {
+  .concept-points article {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    column-gap: 16px;
+    align-items: center;
+    padding: 22px;
+  }
+
+  .concept-points article .icon {
+    grid-row: 1 / span 2;
+    margin: 0;
+  }
+
+  .concept-points article h3 {
+    margin: 0;
+  }
+
+  .concept-points article p {
+    margin-top: 6px;
+  }
+
+  .family-card {
+    text-align: center;
+  }
+
+  .family-card p {
+    text-align: left;
+    min-height: 0;
+    margin-top: 8px;
+  }
+
+  .service-card-head {
+    align-items: center;
+    gap: 14px;
+  }
+
+  .service-card h3 {
+    white-space: normal;
+  }
+
+  .recruit-card {
+    text-align: left;
+  }
+
+  .recruit-card img {
+    margin-inline: auto;
+  }
+
+  .recruit-card .btn {
+    text-align: center;
+  }
+
+  .culture-title-row h2 {
+    text-align: left;
+  }
+
+  .footer-card,
+  .footer-copy,
+  .footer-actions,
+  .footer-contact-meta {
+    text-align: left;
+  }
+}
+
 @media (max-width: 390px) {
   h1 {
-    font-size: clamp(2.65rem, 12vw, 3.3rem);
+    font-size: clamp(2.45rem, 10.8vw, 3.05rem);
   }
 
   h2 {
-    font-size: clamp(1.9rem, 8vw, 2.55rem);
+    font-size: clamp(1.7rem, 7vw, 2.2rem);
   }
 
   .lead {
@@ -949,4 +1016,4 @@ h3 {
   }
 }
 
-/* deploy trigger: 2026-04-27T05:33:13.297947+00:00 */
+/* deploy trigger: targeted cleanup 2026-04-27T06:01:26.221483+00:00 */
