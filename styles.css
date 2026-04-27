@@ -2097,3 +2097,44 @@ p {
     max-height: 258px !important;
   }
 }
+
+
+/* v15: remove forced concept line breaks */
+/* ブランドコンセプト見出しも <br> 相当の強制改行を撤去。
+   spanは単語割れ防止用の inline nowrap のみにする。 */
+.concept-title span,
+.concept-title .nobr,
+.nobr {
+  display: inline !important;
+}
+
+.nobr {
+  white-space: nowrap !important;
+}
+
+.concept-title {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+}
+
+/* スマホで単語が割れないよう、見出しサイズを少し落として自然改行に戻す */
+@media (max-width: 699px) {
+  .concept-title {
+    font-size: clamp(1.68rem, 6.25vw, 1.95rem) !important;
+    line-height: 1.48 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  .concept-title span,
+  .concept-title .nobr {
+    display: inline !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .concept-title {
+    font-size: clamp(1.48rem, 5.85vw, 1.72rem) !important;
+    line-height: 1.52 !important;
+  }
+}
