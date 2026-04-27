@@ -1439,3 +1439,64 @@ p {
     padding-right: 0;
   }
 }
+
+
+/* v13: keep hero image blended + yellow icon size fix */
+/* 1) スマホ版ヒーロー画像を「カード枠」ではなく、ヒーロー内のビジュアルとして馴染ませる */
+@media (max-width: 640px) {
+  .hero-integrated .hero-visual {
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    margin-top: -2px;
+    margin-bottom: 2px;
+  }
+
+  .hero-integrated .hero-visual::before {
+    display: none !important;
+  }
+
+  .hero-integrated .hero-visual img {
+    width: 112%;
+    max-width: none;
+    max-height: 315px;
+    object-fit: contain;
+    transform: translateX(-5%);
+    filter: drop-shadow(0 16px 24px rgba(13, 31, 77, .06));
+  }
+
+  /* 画像とボタンを近づけすぎず、ヒーローとして一体化 */
+  .hero-integrated .hero-grid {
+    gap: 12px;
+  }
+
+  .hero-integrated .hero-actions {
+    margin-top: 4px;
+  }
+}
+
+/* 小さめiPhoneでは画像を少しだけ抑えて見切れ防止 */
+@media (max-width: 390px) {
+  .hero-integrated .hero-visual img {
+    width: 108%;
+    max-height: 290px;
+    transform: translateX(-4%);
+  }
+}
+
+/* 2) 黄色アイコンの中身だけ小さく見える問題を補正 */
+.concept-points .icon-star,
+.icon.icon-star {
+  font-size: 2.15rem;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .concept-points .icon-star,
+  .icon.icon-star {
+    font-size: 2.45rem;
+  }
+}
