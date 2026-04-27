@@ -1839,3 +1839,32 @@ p {
 .showcase-card img {
   margin-inline: auto;
 }
+
+
+/* v17: family character card alignment */
+/* 画像・キャラ名・ラベルは中央、説明文は読みやすく左揃え */
+.family-card {
+  text-align: left;
+}
+
+.family-card img {
+  display: block;
+  margin-inline: auto;
+}
+
+.family-card h3 {
+  text-align: center;
+}
+
+.family-card .pill {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.family-card p {
+  text-align: left;
+}
