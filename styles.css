@@ -1298,277 +1298,229 @@ p {
 }
 
 
-/* v12: mobile UI refinement */
-/* 1) ヒーローコピーをスマホでもう少し大きく */
-@media (max-width: 640px) {
-  .hero-integrated h1 {
-    font-size: clamp(3.35rem, 14.7vw, 4.25rem);
-    line-height: 1.06;
-    letter-spacing: -0.06em;
-  }
-
-  .hero-integrated .lead {
-    font-size: 1.09rem;
-    line-height: 1.92;
-  }
-}
-
-@media (max-width: 390px) {
-  .hero-integrated h1 {
-    font-size: clamp(3.05rem, 14vw, 3.75rem);
-  }
-
-  .hero-integrated .lead {
-    font-size: 1.03rem;
-  }
-}
-
-/* 2) CTAボタンの文字を視覚的に中央へ */
-/* 原因: 右側の矢印分だけ、文字が左寄りに見えていた */
-.hero-integrated .hero-actions .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-left: 46px;
-  padding-right: 46px;
-}
-
-.hero-integrated .hero-actions .btn::after {
-  right: 26px;
-}
-
-@media (max-width: 640px) {
-  .hero-integrated .hero-actions .btn {
-    justify-content: center;
-    padding-left: 52px;
-    padding-right: 52px;
-  }
-
-  .hero-integrated .hero-actions .btn::after {
-    right: 34px;
-  }
-}
-
-/* 3) ブランドコンセプトカード：アイコン横に見出し */
-@media (max-width: 640px) {
-  .concept-points article {
+/* v12: desktop section heading inline layout */
+/* 目的: PC版でも「アイコン/ラベル」の隣に見出しを表示し、セクション導入を横並びで読みやすくする */
+@media (min-width: 881px) {
+  /* 通常のセクションヘッダー */
+  .section-head > div:first-child {
     display: grid;
-    grid-template-columns: 74px 1fr;
-    grid-template-areas:
-      "icon title"
-      "text text";
-    column-gap: 18px;
-    row-gap: 12px;
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
+    column-gap: 22px;
+    row-gap: 8px;
   }
 
-  .concept-points article .icon {
-    grid-area: icon;
-    width: 74px;
-    height: 74px;
+  .section-head .section-label {
     margin: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .concept-points article h3 {
-    grid-area: title;
-    margin: 0;
+    white-space: nowrap;
     align-self: center;
   }
 
-  .concept-points article p {
-    grid-area: text;
-    margin-top: 4px;
+  .section-head h2 {
+    margin: 0;
+    min-width: 0;
   }
-}
 
-/* 4) サービスカード：番号アイコン横に見出し */
-@media (max-width: 640px) {
-  .service-card {
+  .section-head .text-link {
+    white-space: nowrap;
+    justify-self: end;
+  }
+
+  /* ブランドコンセプトだけは .section-head を使っていないので個別対応 */
+  .concept-card {
     display: grid;
-    grid-template-columns: 74px 1fr;
-    grid-template-areas:
-      "no copy"
-      "image image";
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    column-gap: 24px;
+  }
+
+  .concept-card > .section-label {
+    grid-column: 1;
+    margin: 6px 0 0;
+    white-space: nowrap;
+  }
+
+  .concept-card > .concept-grid {
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  /* PCで横並びにした分、見出しが詰まりすぎないよう微調整 */
+  .concept-card h2,
+  .services-head h2,
+  .showcase-section .section-head h2 {
+    letter-spacing: -0.035em;
+  }
+}
+
+/* 1180px以下では横並びを維持しつつ少し詰める */
+@media (min-width: 881px) and (max-width: 1180px) {
+  .section-head > div:first-child {
+    column-gap: 16px;
+  }
+
+  .concept-card {
     column-gap: 18px;
-    row-gap: 18px;
-    align-items: center;
-  }
-
-  .service-card .service-no {
-    grid-area: no;
-    width: 74px;
-    height: 74px;
-    margin: 0;
-    align-self: center;
-    justify-self: start;
-  }
-
-  .service-card .service-copy {
-    grid-area: copy;
-    min-height: 0;
-    align-self: center;
-  }
-
-  .service-card .service-copy h3 {
-    margin: 0 0 10px;
-  }
-
-  .service-card .service-copy p {
-    margin: 0;
-  }
-
-  .service-card img {
-    grid-area: image;
-    margin-top: 0;
-  }
-}
-
-/* 5) コミュニケーション例のラベルを中央寄せ */
-.showcase-card figcaption {
-  text-align: center;
-}
-
-@media (max-width: 640px) {
-  .showcase-card figcaption {
-    text-align: center;
-    padding-left: 0;
-    padding-right: 0;
   }
 }
 
 
-/* v13: keep hero image blended + yellow icon size fix */
-/* 1) スマホ版ヒーロー画像を「カード枠」ではなく、ヒーロー内のビジュアルとして馴染ませる */
-@media (max-width: 640px) {
-  .hero-integrated .hero-visual {
-    border: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    overflow: visible !important;
-    margin-top: -2px;
-    margin-bottom: 2px;
+/* v13: desktop hero layered / editorial depth */
+/* 目的: PC版ヒーローを「左に文字・右に画像を並べただけ」から、少し重なりのある立体的な構成にする */
+@media (min-width: 881px) {
+  .hero-integrated {
+    position: relative;
+    padding-top: 56px;
+    padding-bottom: 56px;
   }
 
-  .hero-integrated .hero-visual::before {
-    display: none !important;
+  .hero-integrated::before {
+    content: "";
+    position: absolute;
+    left: 44%;
+    top: 24%;
+    width: 420px;
+    height: 300px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(207, 231, 242, .22) 0%, rgba(207, 231, 242, 0) 68%);
+    pointer-events: none;
+    z-index: 0;
   }
 
-  .hero-integrated .hero-visual img {
-    width: 112%;
-    max-width: none;
-    max-height: 315px;
-    object-fit: contain;
-    transform: translateX(-5%);
-    filter: drop-shadow(0 16px 24px rgba(13, 31, 77, .06));
+  .hero-integrated::after {
+    content: "";
+    position: absolute;
+    left: 38%;
+    bottom: 18%;
+    width: 360px;
+    height: 210px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 214, 226, .18) 0%, rgba(255, 214, 226, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
   }
 
-  /* 画像とボタンを近づけすぎず、ヒーローとして一体化 */
   .hero-integrated .hero-grid {
-    gap: 12px;
+    position: relative;
+    z-index: 1;
+    grid-template-columns: minmax(500px, .86fr) minmax(620px, 1.14fr);
+    grid-template-areas:
+      "copy visual"
+      "actions visual";
+    gap: 18px 0;
+    align-items: center;
+  }
+
+  .hero-integrated .hero-copy {
+    position: relative;
+    z-index: 3;
+    padding-top: 0;
+    max-width: 640px;
+  }
+
+  .hero-integrated h1 {
+    font-size: clamp(3.05rem, 4.15vw, 3.85rem);
+    line-height: 1.1;
+    letter-spacing: -0.055em;
+  }
+
+  .hero-integrated h1 .hero-line {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .hero-integrated .lead {
+    max-width: 610px;
+    position: relative;
+    z-index: 3;
   }
 
   .hero-integrated .hero-actions {
-    margin-top: 4px;
+    position: relative;
+    z-index: 4;
+    margin-top: 6px;
   }
-}
 
-/* 小さめiPhoneでは画像を少しだけ抑えて見切れ防止 */
-@media (max-width: 390px) {
-  .hero-integrated .hero-visual img {
-    width: 108%;
-    max-height: 290px;
-    transform: translateX(-4%);
-  }
-}
-
-/* 2) 黄色アイコンの中身だけ小さく見える問題を補正 */
-.concept-points .icon-star,
-.icon.icon-star {
-  font-size: 2.15rem;
-  line-height: 1;
-}
-
-@media (max-width: 640px) {
-  .concept-points .icon-star,
-  .icon.icon-star {
-    font-size: 2.45rem;
-  }
-}
-
-
-/* v14: mobile hero image center lock */
-/* 忘れない前提: スマホ版ヒーロー画像は「枠なし・馴染ませる・中央寄せ」を維持 */
-@media (max-width: 640px) {
   .hero-integrated .hero-visual {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    overflow: visible !important;
-    border: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
+    position: relative;
+    z-index: 1;
+    margin-left: -96px;
+    transform: translateX(34px);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .hero-integrated .hero-visual::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 12%;
+    right: 5%;
+    bottom: 8%;
+    height: 34%;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 233, 182, .40) 0%, rgba(255, 233, 182, 0) 72%);
+    filter: blur(2px);
+    z-index: 0;
   }
 
   .hero-integrated .hero-visual img {
-    display: block !important;
-    position: relative !important;
-    left: 50% !important;
-    width: 108% !important;
-    max-width: none !important;
-    max-height: 315px !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    transform: translateX(-50%) !important;
-    margin: 0 !important;
-    filter: drop-shadow(0 16px 24px rgba(13, 31, 77, .06));
+    position: relative;
+    z-index: 1;
+    width: 120%;
+    max-width: none;
+    max-height: 530px;
+    object-fit: contain;
+    transform: translateX(-5%);
+  }
+
+  .hero-integrated .deco-heart {
+    z-index: 2;
+    top: 38%;
+    left: 3.5%;
+  }
+
+  .hero-integrated .deco-cloud {
+    z-index: 2;
+    top: 28%;
+    right: 5.5%;
+  }
+
+  .hero-integrated .deco-dot {
+    z-index: 2;
+    right: 9%;
+    bottom: 22%;
   }
 }
 
-@media (max-width: 390px) {
+/* 少し狭いPCでは、重なりを弱める */
+@media (min-width: 881px) and (max-width: 1180px) {
+  .hero-integrated .hero-grid {
+    grid-template-columns: minmax(450px, .9fr) minmax(500px, 1.1fr);
+  }
+
+  .hero-integrated .hero-visual {
+    margin-left: -64px;
+    transform: translateX(16px);
+  }
+
   .hero-integrated .hero-visual img {
-    width: 104% !important;
-    max-height: 292px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    width: 114%;
+    max-height: 455px;
+  }
+
+  .hero-integrated h1 {
+    font-size: clamp(2.85rem, 4vw, 3.35rem);
   }
 }
 
-
-/* v15: mobile hero arrow tap-highlight removal */
-/* 「私たちの想い」右矢印のグレー背景対策。
-   原因候補: iOS/Safariのタップハイライト、または疑似要素の背景継承。
-   対策: タップハイライトを消し、矢印疑似要素の背景・影・角丸を明示的に無効化。 */
-a,
-button,
-.btn,
-.menu-toggle {
-  -webkit-tap-highlight-color: transparent;
-}
-
-.hero-integrated .hero-actions .btn,
-.hero-integrated .hero-actions .btn:active,
-.hero-integrated .hero-actions .btn:focus {
-  -webkit-tap-highlight-color: transparent;
-}
-
-.hero-integrated .hero-actions .btn::after,
-.hero-integrated .hero-actions .btn:hover::after,
-.hero-integrated .hero-actions .btn:active::after,
-.hero-integrated .hero-actions .btn:focus::after {
-  background: transparent !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  width: auto !important;
-  height: auto !important;
+/* スマホは前回の縦積み統合ヒーローを維持 */
+@media (max-width: 880px) {
+  .hero-integrated .hero-visual {
+    margin-left: 0;
+    transform: none;
+  }
 }
