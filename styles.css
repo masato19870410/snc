@@ -1241,3 +1241,26 @@ p {
     max-height: 270px;
   }
 }
+
+
+/* v10: hero mascot visual horizontal balance fix */
+/* 原因: 112%拡大 + margin-left:-6% で左に寄って見えていたため、右方向へ視覚補正 */
+@media (max-width: 640px) {
+  .hero-integrated .hero-visual img {
+    width: 108%;
+    max-width: none;
+    margin-left: -2%;
+    transform: translateX(8px);
+    max-height: 300px;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-integrated .hero-visual img {
+    width: 108%;
+    margin-left: -2%;
+    transform: translateX(6px);
+    max-height: 270px;
+  }
+}
