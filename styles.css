@@ -1524,3 +1524,95 @@ p {
     transform: none;
   }
 }
+
+
+/* v14: icon alignment and final visual cleanup */
+/* 記号文字はフォントごとに重心がズレるため、概念カードのアイコンは疑似要素で再配置 */
+.concept-points .icon {
+  line-height: 1;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.concept-points .icon-cloud,
+.concept-points .icon-heart,
+.concept-points .icon-star,
+.concept-points .icon-n {
+  font-size: 0;
+}
+
+.concept-points .icon-cloud::before,
+.concept-points .icon-heart::before,
+.concept-points .icon-star::before,
+.concept-points .icon-n::before {
+  display: block;
+  line-height: 1;
+}
+
+.concept-points .icon-cloud::before {
+  content: "☁";
+  font-size: 22px;
+  transform: translateY(-1px);
+}
+
+.concept-points .icon-heart::before {
+  content: "♥";
+  font-size: 23px;
+  transform: translateY(-1px);
+}
+
+.concept-points .icon-star::before {
+  content: "✦";
+  font-size: 25px;
+  transform: translateY(-4px);
+}
+
+.concept-points .icon-n::before {
+  content: "N";
+  font-size: 22px;
+  font-weight: 800;
+  transform: translateY(-1px);
+}
+
+/* モバイルで概念カードのアイコンと見出しの高さが揃うように保険 */
+@media (max-width: 640px) {
+  .concept-points article {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 18px;
+    row-gap: 12px;
+    align-items: center;
+  }
+
+  .concept-points article .icon {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0;
+  }
+
+  .concept-points article h3 {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+  }
+
+  .concept-points article p {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+}
+
+/* PC版のセクション導入で、ラベル横見出しが詰まりすぎる場合の保険 */
+@media (min-width: 881px) {
+  .section-head > div:first-child {
+    min-width: 0;
+  }
+
+  .section-head h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .section-head .text-link {
+    min-width: max-content;
+  }
+}
