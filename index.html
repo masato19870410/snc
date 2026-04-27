@@ -3,12 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#0D2D73">
-<title>なかくも｜システムズナカシマ キャラクターサイト</title>
+  <title>なかくも｜システムズナカシマ キャラクターサイト</title>
   <meta name="description" content="システムズナカシマのキャラクターサイト。やさしさと信頼を、技術でつなぐマスコットファミリー「なかくも」たちの世界観を紹介します。">
   <link rel="canonical" href="https://nakakumo.vercel.app/">
 
@@ -37,7 +32,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand brand-mascot">
-        <img src="header_mascot_logo.png" alt="なかくも CHARACTER SITE" />
+        <img src="logo.png" alt="なかくも CHARACTER SITE" />
       </a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
@@ -80,10 +75,12 @@
 
     <section class="section" id="about">
       <div class="container card concept-card">
-        <div class="section-label">ブランドコンセプト</div>
         <div class="concept-grid">
           <div>
-            <h2>やさしさと信頼、テクノロジーへのワクワクを届ける、<br>ふわっとやさしいマスコットファミリー。</h2>
+            <div class="section-title-row">
+              <div class="section-label">ブランドコンセプト</div>
+              <h2>やさしさと信頼、テクノロジーへのワクワクを届ける、<br>ふわっとやさしいマスコットファミリー。</h2>
+            </div>
             <p>システムズナカシマは、ITの力で未来を支えるパートナーです。データと技術を通じて、人や企業の「やりたい！」に寄り添い、ワクワクする未来をやさしくつないでいきます。</p>
           </div>
           <div class="concept-points">
@@ -115,7 +112,7 @@
     <section class="section" id="examples">
       <div class="container">
         <div class="section-head">
-          <div>
+          <div class="section-title-row">
             <div class="section-label">マスコットファミリー</div>
             <h2>それぞれの個性で、みんなをサポート。</h2>
           </div>
@@ -154,7 +151,7 @@
     <section class="section" id="services">
       <div class="container services-wrap card">
         <div class="section-head services-head">
-          <div>
+          <div class="section-title-row">
             <div class="section-label">ソリューション</div>
             <h2>やさしい技術で、ビジネスの「やりたい！」をカタチにします。</h2>
           </div>
@@ -195,7 +192,7 @@
     <section class="section showcase-section">
       <div class="container">
         <div class="section-head">
-          <div>
+          <div class="section-title-row">
             <div class="section-label">コミュニケーション例</div>
             <h2>サイト・SNS・パンフレット・名刺まで、一貫した世界観で展開。</h2>
           </div>
@@ -253,16 +250,27 @@
 
     <section class="section" id="company">
       <div class="container info-banner card">
-        <div>
-          <div class="section-label">企業情報</div>
-          <h2>システムズナカシマ</h2>
+        <div class="company-main">
+          <div class="section-title-row company-title-row">
+            <div class="section-label">企業情報</div>
+            <h2>システムズナカシマ</h2>
+          </div>
           <p>やさしさと信頼を、技術でつなぐ。<br>キャラクターを活かしたブランドコミュニケーションを、Web・採用・広報・ノベルティへ展開します。</p>
         </div>
-        <ul>
-          <li>会社名：株式会社システムズナカシマ</li>
-          <li>ブランド表記：SYSTEMS NAKASHIMA</li>
-          <li>タグライン：We Go Beyond</li>
-        </ul>
+        <dl class="company-meta">
+          <div>
+            <dt>会社名</dt>
+            <dd>株式会社システムズナカシマ</dd>
+          </div>
+          <div>
+            <dt>ブランド表記</dt>
+            <dd>SYSTEMS NAKASHIMA</dd>
+          </div>
+          <div>
+            <dt>タグライン</dt>
+            <dd>We Go Beyond</dd>
+          </div>
+        </dl>
       </div>
     </section>
   </main>
