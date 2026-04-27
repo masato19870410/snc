@@ -1296,3 +1296,146 @@ p {
     max-height: 430px;
   }
 }
+
+
+/* v12: mobile UI refinement */
+/* 1) ヒーローコピーをスマホでもう少し大きく */
+@media (max-width: 640px) {
+  .hero-integrated h1 {
+    font-size: clamp(3.35rem, 14.7vw, 4.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.06em;
+  }
+
+  .hero-integrated .lead {
+    font-size: 1.09rem;
+    line-height: 1.92;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-integrated h1 {
+    font-size: clamp(3.05rem, 14vw, 3.75rem);
+  }
+
+  .hero-integrated .lead {
+    font-size: 1.03rem;
+  }
+}
+
+/* 2) CTAボタンの文字を視覚的に中央へ */
+/* 原因: 右側の矢印分だけ、文字が左寄りに見えていた */
+.hero-integrated .hero-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-left: 46px;
+  padding-right: 46px;
+}
+
+.hero-integrated .hero-actions .btn::after {
+  right: 26px;
+}
+
+@media (max-width: 640px) {
+  .hero-integrated .hero-actions .btn {
+    justify-content: center;
+    padding-left: 52px;
+    padding-right: 52px;
+  }
+
+  .hero-integrated .hero-actions .btn::after {
+    right: 34px;
+  }
+}
+
+/* 3) ブランドコンセプトカード：アイコン横に見出し */
+@media (max-width: 640px) {
+  .concept-points article {
+    display: grid;
+    grid-template-columns: 74px 1fr;
+    grid-template-areas:
+      "icon title"
+      "text text";
+    column-gap: 18px;
+    row-gap: 12px;
+    align-items: center;
+  }
+
+  .concept-points article .icon {
+    grid-area: icon;
+    width: 74px;
+    height: 74px;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .concept-points article h3 {
+    grid-area: title;
+    margin: 0;
+    align-self: center;
+  }
+
+  .concept-points article p {
+    grid-area: text;
+    margin-top: 4px;
+  }
+}
+
+/* 4) サービスカード：番号アイコン横に見出し */
+@media (max-width: 640px) {
+  .service-card {
+    display: grid;
+    grid-template-columns: 74px 1fr;
+    grid-template-areas:
+      "no copy"
+      "image image";
+    column-gap: 18px;
+    row-gap: 18px;
+    align-items: center;
+  }
+
+  .service-card .service-no {
+    grid-area: no;
+    width: 74px;
+    height: 74px;
+    margin: 0;
+    align-self: center;
+    justify-self: start;
+  }
+
+  .service-card .service-copy {
+    grid-area: copy;
+    min-height: 0;
+    align-self: center;
+  }
+
+  .service-card .service-copy h3 {
+    margin: 0 0 10px;
+  }
+
+  .service-card .service-copy p {
+    margin: 0;
+  }
+
+  .service-card img {
+    grid-area: image;
+    margin-top: 0;
+  }
+}
+
+/* 5) コミュニケーション例のラベルを中央寄せ */
+.showcase-card figcaption {
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .showcase-card figcaption {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
