@@ -2138,3 +2138,47 @@ p {
     line-height: 1.52 !important;
   }
 }
+
+
+/* v16: hero mascot visual centering fix */
+/* 原因: hero_family.png の絵柄重心が左寄り。画像枠は中央でも、絵だけが左に寄って見えるため視覚補正する。 */
+
+/* まず通常時は中央基準 */
+.hero-integrated .hero-visual {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.hero-integrated .hero-visual img {
+  margin-inline: auto !important;
+}
+
+/* スマホでは絵柄を少し右へ補正 */
+@media (max-width: 699px) {
+  .hero-integrated .hero-visual {
+    overflow: visible !important;
+  }
+
+  .hero-integrated .hero-visual img {
+    width: 104% !important;
+    max-width: none !important;
+    transform: translateX(18px) !important;
+    transform-origin: center center !important;
+  }
+}
+
+/* 幅が狭いiPhoneでは補正量を少しだけ弱める */
+@media (max-width: 390px) {
+  .hero-integrated .hero-visual img {
+    width: 106% !important;
+    transform: translateX(14px) !important;
+  }
+}
+
+/* PCではカード内で少しだけ右へ。大きく動かすと逆に崩れるので控えめ */
+@media (min-width: 700px) {
+  .hero-integrated .hero-visual img {
+    transform: translateX(10px) !important;
+  }
+}
