@@ -22,6 +22,7 @@
   <meta name="twitter:title" content="なかくも｜システムズナカシマ キャラクターサイト">
   <meta name="twitter:description" content="やさしさと信頼を、技術でつなぐ。システムズナカシマのマスコットファミリー「なかくも」たちのキャラクターサイト。">
   <meta name="twitter:image" content="https://nakakumo.vercel.app/ogp.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -29,6 +30,7 @@
 </head>
 <body>
   <div class="site-bg"></div>
+
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand brand-mascot">
@@ -56,16 +58,14 @@
         <div class="hero-copy">
           <p class="eyebrow">SYSTEMS NAKASHIMA CHARACTER SITE</p>
           <h1>やさしさと信頼を、技術でつなぐ。</h1>
-          <p class="lead">データと技術の力で、みんなの「やりたい！」を支える存在へ。<br>未来へつづくワクワクを、やさしく、あたたかく届けます。</p>
+          <p class="lead">データと技術の力で、みんなの「やりたい！」を支える存在へ。未来へつづくワクワクを、やさしく、あたたかく届けます。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#about">私たちの想い</a>
+            <a class="btn btn-secondary" href="#services">サービスを見る</a>
+          </div>
         </div>
-
         <div class="hero-visual">
           <img src="hero_family.png" alt="システムズナカシマのマスコットファミリー" />
-        </div>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#about">私たちの想い</a>
-          <a class="btn btn-secondary" href="#services">サービスを見る</a>
         </div>
       </div>
       <div class="hero-deco deco-heart"></div>
@@ -76,7 +76,7 @@
     <section class="section" id="about">
       <div class="container card concept-card">
         <div class="concept-grid">
-          <div>
+          <div class="concept-copy">
             <div class="section-title-row">
               <div class="section-label">ブランドコンセプト</div>
               <h2>やさしさと信頼、テクノロジーへのワクワクを届ける、ふわっとやさしいマスコットファミリー。</h2>
@@ -227,7 +227,10 @@
     <section class="section culture-section" id="recruit">
       <div class="container culture-grid">
         <div class="culture-main card">
-          <div class="section-label">働く環境・文化</div>
+          <div class="section-title-row culture-title-row">
+            <div class="section-label">働く環境・文化</div>
+            <h2>一緒に、ワクワクする未来をつくりませんか？</h2>
+          </div>
           <div class="culture-points">
             <article>
               <h3>人を大切にする文化</h3>
@@ -245,7 +248,6 @@
         </div>
 
         <aside class="recruit-card card">
-          <div class="section-label">採用情報</div>
           <img src="main_mascot.png" alt="システムズナカシマのメインマスコット" />
           <h2>一緒に、ワクワクする未来をつくりませんか？</h2>
           <p>やさしさと技術が両立するチームで、新しい価値を届けていく仲間を募集しています。</p>
@@ -261,7 +263,7 @@
             <div class="section-label">企業情報</div>
             <h2>システムズナカシマ</h2>
           </div>
-          <p>やさしさと信頼を、技術でつなぐ。<br>キャラクターを活かしたブランドコミュニケーションを、Web・採用・広報・ノベルティへ展開します。</p>
+          <p>やさしさと信頼を、技術でつなぐ。キャラクターを活かしたブランドコミュニケーションを、Web・採用・広報・ノベルティへ展開します。</p>
         </div>
         <dl class="company-meta">
           <div>
@@ -301,10 +303,13 @@
   <script>
     const button = document.getElementById('menuToggle');
     const nav = document.getElementById('globalNav');
-    button.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('is-open');
-      button.setAttribute('aria-expanded', String(isOpen));
-    });
+
+    if (button && nav) {
+      button.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        button.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
   </script>
 </body>
 </html>
